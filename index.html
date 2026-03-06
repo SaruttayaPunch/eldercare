@@ -136,7 +136,8 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 .p-verified{display:inline-flex;align-items:center;gap:3px;background:#E8F7F0;color:var(--green);font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px}
 
 .profile-section{background:var(--white);margin:10px 0;padding:18px 20px}
-.p-sec-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.p-sec-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:9px}
+.p-sec-title::before{content:attr(data-icon);font-size:14px;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--icon-bg,var(--bg));box-shadow:0 2px 6px var(--icon-shadow,rgba(0,0,0,.08))}
 .p-bio{font-size:13px;color:var(--text);line-height:1.65}
 .p-tags{display:flex;flex-wrap:wrap;gap:7px}
 .p-tag{background:var(--bg);border:1px solid var(--border);border-radius:20px;font-size:12px;font-weight:500;padding:5px 13px;color:var(--text)}
@@ -159,14 +160,13 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 .book-price span{font-size:12px;font-weight:400;color:var(--muted)}
 .book-btn{flex:1;background:var(--accent);border:none;color:#fff;border-radius:13px;padding:15px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(245,166,35,.35)}
 
-/* colors */
+/* ── COLORS ── */
 .bg-o{background:linear-gradient(135deg,#FFE4C4,#FFD09B)}
 .bg-g{background:linear-gradient(135deg,#D4EDDA,#B8DFCA)}
 .bg-b{background:linear-gradient(135deg,#D6EAF8,#AED6F1)}
 .bg-p{background:linear-gradient(135deg,#E8D5F5,#D2B4E8)}
 .bg-pk{background:linear-gradient(135deg,#FADBD8,#F9B6B0)}
 .bg-y{background:linear-gradient(135deg,#FEF9C3,#FDE68A)}
-
 .av1{background:linear-gradient(135deg,#667eea,#764ba2)}
 .av2{background:linear-gradient(135deg,#f093fb,#f5576c)}
 .av3{background:linear-gradient(135deg,#4facfe,#00f2fe)}
@@ -193,6 +193,70 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 .browse-actions .btn-outline{flex:1;background:transparent;border:1.5px solid var(--accent);color:var(--accent);border-radius:10px;padding:9px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;cursor:pointer}
 .browse-actions .btn-fill{flex:1;background:var(--accent);border:none;color:#fff;border-radius:10px;padding:9px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;cursor:pointer;box-shadow:0 3px 10px rgba(245,166,35,.3)}
 
+/* ── MY CARE SCREEN ── */
+.mycare-hero{background:var(--dark);padding:28px 20px 24px;position:relative;overflow:hidden}
+.mycare-hero::after{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.18),transparent 70%);pointer-events:none}
+.mycare-hero h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:4px}
+.mycare-hero p{font-size:13px;color:rgba(255,255,255,.5)}
+.active-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(76,175,130,.15);border:1px solid rgba(76,175,130,.35);color:var(--green);font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;margin-bottom:14px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulseDot 1.4s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+
+.care-section{padding:18px 20px 4px}
+.care-section-title{font-size:13px;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.care-section-title span{font-size:15px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.care-section-title.tracking span{background:#E8F4FD;box-shadow:0 2px 6px rgba(76,130,245,.18)}
+.care-section-title.photos span{background:#FFF3DC;box-shadow:0 2px 6px rgba(245,166,35,.18)}
+.care-section-title.doctor span{background:#FEF0E6;box-shadow:0 2px 6px rgba(245,100,61,.15)}
+.care-section-title.summary span{background:#E8F7F0;box-shadow:0 2px 6px rgba(76,175,130,.18)}
+
+.track-card{background:var(--white);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.track-map{background:linear-gradient(135deg,#e8f4fd,#d4eaf7);border-radius:12px;height:120px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:12px;overflow:hidden}
+.map-route{width:70%;height:3px;background:rgba(76,130,245,.3);border-radius:4px;position:relative}
+.map-route::before,.map-route::after{content:'';position:absolute;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%}
+.map-route::before{left:0;background:#4CAF82;box-shadow:0 0 0 4px rgba(76,175,130,.2)}
+.map-route::after{right:0;background:var(--accent);box-shadow:0 0 0 4px rgba(245,166,35,.2)}
+.map-pin{position:absolute;font-size:28px;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.track-status-row{display:flex;gap:8px}
+.status-pill{flex:1;background:var(--bg);border-radius:10px;padding:10px;text-align:center}
+.status-pill-icon{font-size:18px;margin-bottom:3px}
+.status-pill-label{font-size:10px;color:var(--muted);font-weight:500}
+.status-pill-val{font-size:12px;font-weight:700;color:var(--dark)}
+
+.step-timeline{padding:4px 0}
+.step-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.step-dot-wrap{display:flex;flex-direction:column;align-items:center}
+.step-dot{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.step-dot.done{background:var(--green);color:#fff}
+.step-dot.active{background:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(245,166,35,.2)}
+.step-dot.pending{background:var(--border);color:var(--muted)}
+.step-line{width:2px;flex:1;min-height:20px;background:var(--border);margin-top:3px}
+.step-line.done{background:var(--green)}
+.step-body{padding-top:1px;flex:1}
+.step-title{font-size:13px;font-weight:600;color:var(--dark)}
+.step-title.pending{color:var(--muted)}
+.step-time{font-size:11px;color:var(--muted);margin-top:1px}
+
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.photo-item{border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;cursor:pointer}
+.photo-time{position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,.5);color:#fff;font-size:9px;padding:2px 6px;border-radius:6px;font-weight:500}
+.photo-upload{border:2px dashed var(--border);background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.photo-upload span{font-size:11px;color:var(--muted);font-weight:500}
+
+.note-card{background:var(--white);border-radius:16px;padding:16px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.05);border-left:4px solid var(--accent)}
+.note-card.green{border-left-color:var(--green)}
+.note-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin-bottom:6px}
+.note-card.green .note-label{color:var(--green)}
+.note-title{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.note-text{font-size:13px;color:var(--text);line-height:1.6}
+.note-tag{display:inline-block;background:#FFF3DC;color:#b37a10;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;margin:4px 4px 0 0}
+.note-tag.red{background:#FFEBEB;color:#c0392b}
+.mood-row{display:flex;gap:8px;margin-top:8px}
+.mood-btn{flex:1;background:var(--bg);border:2px solid transparent;border-radius:10px;padding:8px 4px;text-align:center;font-size:18px;cursor:pointer;transition:all .15s}
+.mood-btn.selected{border-color:var(--accent);background:#FFF3DC}
+.summary-box{background:var(--bg);border-radius:10px;padding:12px;margin-top:8px;font-size:13px;color:var(--text);line-height:1.65}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .grid .svc-card{animation:fadeUp .4s ease forwards;opacity:0}
 .grid .svc-card:nth-child(1){animation-delay:.05s}
@@ -207,19 +271,16 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 
 <!-- ══════════════ HOME SCREEN ══════════════ -->
 <div class="screen active" id="homeScreen">
-
   <div class="topnav">
     <span class="menu-icon">☰</span>
     <div class="logo">CareCompanion 🧡</div>
     <div class="avatar-sm">👤</div>
   </div>
-
-  <div style="overflow-y:auto;flex:1;padding-bottom:80px">
+  <div style="overflow-y:auto;flex:1;padding-bottom:160px">
     <div class="hero-header">
       <h1>Find and book<br>your care <span>service 🧡</span></h1>
       <p>Trusted companions for your loved ones</p>
     </div>
-
     <div class="search-wrap">
       <div class="search-box">
         <span>🔍</span>
@@ -227,7 +288,6 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
         <button class="filter-btn">⚙️</button>
       </div>
     </div>
-
     <div class="chips-wrap">
       <div class="chip active" onclick="filterChip(this)">🏥 Medical</div>
       <div class="chip" onclick="filterChip(this)">🌳 Outings</div>
@@ -235,24 +295,23 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
       <div class="chip" onclick="filterChip(this)">🛒 Errands</div>
       <div class="chip" onclick="filterChip(this)">💬 Social</div>
     </div>
-
     <div class="sec-header"><h2>✨ Most Booked</h2><span>See all</span></div>
     <div class="featured-scroll">
-      <div class="feat-card" style="background:linear-gradient(135deg,#1A1A2E,#2d2d44)" onclick="openSheet('Hospital Companion','🏥','$25/visit','Escort to appointments, wait alongside, note doctor\'s instructions, and send a full summary to the family.')">
+      <div class="feat-card" style="background:linear-gradient(135deg,#1A1A2E,#2d2d44)" onclick="openSheet('Hospital Companion','🏥','1300฿/visit','Escort to appointments, wait alongside, note doctor\'s instructions, and send a full summary to the family.')">
         <span class="feat-emoji">🏥</span>
         <div class="feat-tag">POPULAR</div>
         <div class="feat-title">Hospital Companion</div>
         <div class="feat-sub">Escort, wait & report back</div>
         <div class="feat-price">1300฿ <span>/ visit</span></div>
       </div>
-      <div class="feat-card" style="background:linear-gradient(135deg,#1B4332,#2D6A4F)" onclick="openSheet('Senior Outing','🌳','$18/trip','Park walks, temple visits, or lunch with friends — we escort and keep your loved one safe and happy.')">
+      <div class="feat-card" style="background:linear-gradient(135deg,#1B4332,#2D6A4F)" onclick="openSheet('Senior Outing','🌳','1000฿/trip','Park walks, temple visits, or lunch with friends — we escort and keep your loved one safe and happy.')">
         <span class="feat-emoji">🌳</span>
         <div class="feat-tag">NEW</div>
         <div class="feat-title">Senior Outing</div>
         <div class="feat-sub">Park, temple & friends</div>
         <div class="feat-price">1000฿ <span>/ trip</span></div>
       </div>
-      <div class="feat-card" style="background:linear-gradient(135deg,#4A1C40,#7B2D8B)" onclick="openSheet('Companionship','💬','$15/hour','A friendly visit to chat, teach social media, or simply read aloud — so your loved one never feels alone.')">
+      <div class="feat-card" style="background:linear-gradient(135deg,#4A1C40,#7B2D8B)" onclick="openSheet('Companionship','💬','600฿/hour','A friendly visit to chat, teach social media, or simply read aloud — so your loved one never feels alone.')">
         <span class="feat-emoji">💬</span>
         <div class="feat-tag">LOVED</div>
         <div class="feat-title">Companionship</div>
@@ -260,12 +319,10 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
         <div class="feat-price">600฿ <span>/ hour</span></div>
       </div>
     </div>
-
     <div class="sec-header"><h2>🔍 All Services</h2></div>
     <div class="results-meta">Found <strong>6 services</strong> near you</div>
-
     <div class="grid">
-      <div class="svc-card" onclick="openSheet('Hospital Companion','🏥','$25/visit','Escort to appointments, wait alongside, note doctor\'s instructions, and send a full summary to the family.')">
+      <div class="svc-card" onclick="openSheet('Hospital Companion','🏥','1300฿/visit','Escort to appointments, wait alongside, note doctor\'s instructions, and send a full summary to the family.')">
         <div class="svc-img bg-o">🏥<span class="badge-tag">Medical</span></div>
         <div class="svc-body">
           <div class="svc-title">Hospital Companion</div>
@@ -273,7 +330,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
           <div class="svc-footer"><div class="svc-price">1300฿ <span>/visit</span></div><button class="add-btn" onclick="addTap(event,this)">+</button></div>
         </div>
       </div>
-      <div class="svc-card" onclick="openSheet('Health Check-up Trip','🩺','$35/trip','Full door-to-door service for yearly health screenings — pickup, companionship throughout, and drop-off.')">
+      <div class="svc-card" onclick="openSheet('Health Check-up Trip','🩺','1500฿/trip','Full door-to-door service for yearly health screenings — pickup, companionship throughout, and drop-off.')">
         <div class="svc-img bg-b">🩺<span class="badge-tag">Medical</span></div>
         <div class="svc-body">
           <div class="svc-title">Health Check-up Trip</div>
@@ -281,7 +338,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
           <div class="svc-footer"><div class="svc-price">1500฿ <span>/trip</span></div><button class="add-btn" onclick="addTap(event,this)">+</button></div>
         </div>
       </div>
-      <div class="svc-card" onclick="openSheet('Senior Outing','🌳','$18/trip','Park walks, temple visits, or lunch with friends — we escort and keep your loved one safe and happy.')">
+      <div class="svc-card" onclick="openSheet('Senior Outing','🌳','1000฿/trip','Park walks, temple visits, or lunch with friends — we escort and keep your loved one safe and happy.')">
         <div class="svc-img bg-g">🌳<span class="badge-tag">Outing</span></div>
         <div class="svc-body">
           <div class="svc-title">Senior Outing</div>
@@ -289,7 +346,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
           <div class="svc-footer"><div class="svc-price">1000฿ <span>/trip</span></div><button class="add-btn" onclick="addTap(event,this)">+</button></div>
         </div>
       </div>
-      <div class="svc-card" onclick="openSheet('Grocery Assistant','🛒','$12/trip','Accompany for shopping, or take a list from the family and pick everything up — fresh and on time.')">
+      <div class="svc-card" onclick="openSheet('Grocery Assistant','🛒','1000฿/trip','Accompany for shopping, or take a list from the family and pick everything up — fresh and on time.')">
         <div class="svc-img bg-y">🛒<span class="badge-tag">Errand</span></div>
         <div class="svc-body">
           <div class="svc-title">Grocery Assistant</div>
@@ -297,7 +354,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
           <div class="svc-footer"><div class="svc-price">1000฿ <span>/trip</span></div><button class="add-btn" onclick="addTap(event,this)">+</button></div>
         </div>
       </div>
-      <div class="svc-card" onclick="openSheet('Safety Check','🏠','$20/check','Inspect the home — replace bulbs, check anti-slip flooring, secure loose carpets, and flag any hazards.')">
+      <div class="svc-card" onclick="openSheet('Safety Check','🏠','1000฿/check','Inspect the home — replace bulbs, check anti-slip flooring, secure loose carpets, and flag any hazards.')">
         <div class="svc-img bg-pk">🏠<span class="badge-tag">Home</span></div>
         <div class="svc-body">
           <div class="svc-title">Safety Check</div>
@@ -305,7 +362,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
           <div class="svc-footer"><div class="svc-price">1000฿ <span>/check</span></div><button class="add-btn" onclick="addTap(event,this)">+</button></div>
         </div>
       </div>
-      <div class="svc-card" onclick="openSheet('Companionship','💬','$15/hour','A friendly visit to chat, teach social media, or simply read aloud — so your loved one never feels alone.')">
+      <div class="svc-card" onclick="openSheet('Companionship','💬','600฿/hour','A friendly visit to chat, teach social media, or simply read aloud — so your loved one never feels alone.')">
         <div class="svc-img bg-p">💬<span class="badge-tag">Social</span></div>
         <div class="svc-body">
           <div class="svc-title">Companionship</div>
@@ -315,12 +372,11 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
       </div>
     </div>
   </div>
-
   <nav class="bottom-nav">
     <a class="nav-item active" onclick="switchTab('home',this)"><span class="nicon">🏠</span>Home</a>
     <a class="nav-item" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
     <a class="nav-book"><span class="nicon">📅</span>Book</a>
-    <a class="nav-item"><span class="nicon">📋</span>My Care</a>
+    <a class="nav-item" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
     <a class="nav-item"><span class="nicon">👤</span>Profile</a>
   </nav>
 </div>
@@ -361,7 +417,167 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
     <a class="nav-item" onclick="switchTab('home',this)"><span class="nicon">🏠</span>Home</a>
     <a class="nav-item active" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
     <a class="nav-book"><span class="nicon">📅</span>Book</a>
-    <a class="nav-item"><span class="nicon">📋</span>My Care</a>
+    <a class="nav-item" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
+    <a class="nav-item"><span class="nicon">👤</span>Profile</a>
+  </nav>
+</div>
+
+<!-- ══════════════ MY CARE SCREEN ══════════════ -->
+<div class="screen" id="mycareScreen">
+  <div class="topnav">
+    <span class="menu-icon">☰</span>
+    <div class="logo">My Care 📋</div>
+    <div class="avatar-sm">👤</div>
+  </div>
+  <div style="overflow-y:auto;flex:1;padding-bottom:90px">
+
+    <!-- Hero -->
+    <div class="mycare-hero">
+      <div class="active-badge"><div class="pulse"></div> Session Active</div>
+      <h1>Mum's Care Today</h1>
+      <p>Hospital Companion · Nipa Srisuk · Started 9:15 AM</p>
+    </div>
+
+    <!-- 1. TRACKING -->
+    <div class="care-section">
+      <div class="care-section-title tracking"><span>📍</span> Real-time Tracking</div>
+      <div class="track-card">
+        <div class="track-map">
+          <div class="map-route"></div>
+          <div class="map-pin">📍</div>
+        </div>
+        <div class="track-status-row">
+          <div class="status-pill">
+            <div class="status-pill-icon">🏠</div>
+            <div class="status-pill-label">Pickup</div>
+            <div class="status-pill-val">9:15 AM</div>
+          </div>
+          <div class="status-pill">
+            <div class="status-pill-icon">🏥</div>
+            <div class="status-pill-label">At Hospital</div>
+            <div class="status-pill-val">Now</div>
+          </div>
+          <div class="status-pill">
+            <div class="status-pill-icon">🏡</div>
+            <div class="status-pill-label">Return</div>
+            <div class="status-pill-val">~12:30 PM</div>
+          </div>
+        </div>
+      </div>
+      <div class="track-card">
+        <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:14px">Live Status Updates</div>
+        <div class="step-timeline">
+          <div class="step-item">
+            <div class="step-dot-wrap"><div class="step-dot done">✓</div><div class="step-line done"></div></div>
+            <div class="step-body"><div class="step-title">Home Pickup</div><div class="step-time">9:15 AM · Carer arrived on time</div></div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot-wrap"><div class="step-dot done">✓</div><div class="step-line done"></div></div>
+            <div class="step-body"><div class="step-title">En Route to Hospital</div><div class="step-time">9:22 AM · Traveling by car</div></div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot-wrap"><div class="step-dot active">●</div><div class="step-line"></div></div>
+            <div class="step-body"><div class="step-title">Hospital Arrival</div><div class="step-time">9:48 AM · With doctor now</div></div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot-wrap"><div class="step-dot pending">○</div><div class="step-line"></div></div>
+            <div class="step-body"><div class="step-title pending">Waiting for Results</div><div class="step-time">Estimated 11:30 AM</div></div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot-wrap"><div class="step-dot pending">○</div></div>
+            <div class="step-body"><div class="step-title pending">Journey Home</div><div class="step-time">Estimated 12:30 PM</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. PHOTO UPDATES -->
+    <div class="care-section">
+      <div class="care-section-title photos"><span>📸</span> Photo Updates</div>
+      <div class="track-card">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Visual Care Logs from Nipa today</div>
+        <div class="photo-grid">
+            <div class="photo-item">
+              <img src="./8d947029284bf35e0031bc71d23caf08 (1).jpg" style="width:100%;height:100%;object-fit:cover">
+              <div class="photo-time">9:20 AM</div>
+            </div>
+            <div class="photo-item">
+              <img src="./OIP.jpg" style="width:100%;height:100%;object-fit:cover">
+              <div class="photo-time">9:50 AM</div>
+            </div>
+            <div class="photo-item">
+              <img src="./Elderly-lady-768x576.jpg" style="width:100%;height:100%;object-fit:cover">
+              <div class="photo-time">10:30 AM</div>
+            </div>
+            <div class="photo-item photo-upload">
+              <span style="font-size:24px">📷</span>
+              <span>Add Photo</span>
+            </div>
+          </div>
+        <div style="background:#FFF3DC;border-radius:10px;padding:11px;font-size:12px;color:#7a5c00;display:flex;gap:8px;align-items:flex-start">
+          <span style="font-size:16px;flex-shrink:0">💛</span>
+          <span>Instant Photo Updates — See your loved one's smiles and daily moments directly through the app.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. DOCTOR'S INSTRUCTIONS -->
+    <div class="care-section">
+      <div class="care-section-title doctor"><span>📝</span> Doctor's Instructions</div>
+      <div class="note-card">
+        <div class="note-label">Doctor's Notes · Dr. Somchai</div>
+        <div class="note-title">Dietary Restrictions</div>
+        <div class="note-text">Patient must avoid high-sugar foods and salt for the next 2 weeks.</div>
+        <div style="margin-top:8px">
+          <span class="note-tag red">🚫 No Sugar</span>
+          <span class="note-tag red">🚫 Low Salt</span>
+          <span class="note-tag">💊 Take meds after meals</span>
+        </div>
+      </div>
+      <div class="note-card">
+        <div class="note-label">Medication Schedule</div>
+        <div class="note-title">Daily Medications</div>
+        <div class="note-text">Metformin 500mg — twice daily after meals.<br>Blood pressure tablet — once in the morning.</div>
+        <div style="margin-top:8px">
+          <span class="note-tag">🌅 Morning dose done ✓</span>
+          <span class="note-tag">🌙 Evening dose pending</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CAREGIVER SUMMARY -->
+    <div class="care-section">
+      <div class="care-section-title summary"><span>💬</span> Caregiver's Daily Summary</div>
+      <div class="note-card green">
+        <div class="note-label">Nipa's Report · Today</div>
+        <div class="note-title">Today's Condition</div>
+        <div class="summary-box">Khun Mae was in good spirits this morning and had breakfast before we left. She walked steadily and didn't require the wheelchair. At the hospital she was calm and cooperative with the doctor.</div>
+      </div>
+      <div class="track-card">
+        <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:10px">How is she feeling today?</div>
+        <div class="mood-row">
+          <div class="mood-btn selected">😊<div style="font-size:9px;margin-top:3px;color:var(--muted)">Happy</div></div>
+          <div class="mood-btn">😐<div style="font-size:9px;margin-top:3px;color:var(--muted)">Okay</div></div>
+          <div class="mood-btn">😴<div style="font-size:9px;margin-top:3px;color:var(--muted)">Tired</div></div>
+          <div class="mood-btn">😟<div style="font-size:9px;margin-top:3px;color:var(--muted)">Unwell</div></div>
+        </div>
+        <div style="margin-top:14px">
+          <div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:6px">Appetite</div>
+          <div style="display:flex;gap:8px">
+            <div style="flex:1;background:#E8F7F0;border-radius:8px;padding:8px;text-align:center;font-size:12px;font-weight:600;color:var(--green)">🍚 Ate well</div>
+            <div style="flex:1;background:var(--bg);border-radius:8px;padding:8px;text-align:center;font-size:12px;color:var(--muted)">🥣 Half meal</div>
+            <div style="flex:1;background:var(--bg);border-radius:8px;padding:8px;text-align:center;font-size:12px;color:var(--muted)">😞 No appetite</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="height:100px"></div>
+  </div>
+  <nav class="bottom-nav">
+    <a class="nav-item" onclick="switchTab('home',this)"><span class="nicon">🏠</span>Home</a>
+    <a class="nav-item" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
+    <a class="nav-book"><span class="nicon">📅</span>Book</a>
+    <a class="nav-item active" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
     <a class="nav-item"><span class="nicon">👤</span>Profile</a>
   </nav>
 </div>
@@ -385,7 +601,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
         <span class="sheet-emoji" id="sheetEmoji">🏥</span>
         <div class="sheet-info">
           <div class="sheet-title" id="sheetTitle">Service</div>
-          <div class="sheet-price" id="sheetPrice">$25/visit</div>
+          <div class="sheet-price" id="sheetPrice">1300฿/visit</div>
         </div>
       </div>
       <button class="close-btn" onclick="closeSheet()">✕</button>
@@ -411,7 +627,7 @@ const carers = [
     bestAt:["Hospital escort","Medication reminders","Wheelchair assist","Speaks English & Thai","Post-surgery care"],
     experience:"6 years · Former nurse assistant at Bumrungrad Hospital",
     expRole:"Nurse Assistant → Private Carer",
-    price:"$25/visit",
+    price:"1300฿",
     reviewsList:[
       {name:"Somchai K.", stars:"★★★★★", date:"Feb 2026", text:"Nipa was incredibly kind with my mother. She kept detailed notes from the doctor and explained everything clearly to us after."},
       {name:"Lisa T.", stars:"★★★★★", date:"Jan 2026", text:"Very professional and warm. My dad actually looked forward to her visits!"}
@@ -427,7 +643,7 @@ const carers = [
     bestAt:["Senior outings","Dementia support","Light exercise","Social activities","Meal preparation"],
     experience:"4 years · Occupational therapy background",
     expRole:"Occupational Therapy Aide → Senior Companion",
-    price:"$18/trip",
+    price:"1000฿",
     reviewsList:[
       {name:"Araya P.", stars:"★★★★★", date:"Feb 2026", text:"Malee took my grandmother to the temple and they had the best time. She sent photos and a little report — so thoughtful."},
       {name:"James W.", stars:"★★★★☆", date:"Dec 2025", text:"Great energy and very reliable. My mom was nervous at first but warmed up to Malee quickly."}
@@ -443,7 +659,7 @@ const carers = [
     bestAt:["Home safety inspection","Grocery shopping","Light housekeeping","Companionship","Errands"],
     experience:"8 years · Home care specialist",
     expRole:"Home Care Worker → Senior Safety Specialist",
-    price:"$20/check",
+    price:"1000฿",
     reviewsList:[
       {name:"Priya N.", stars:"★★★★★", date:"Jan 2026", text:"Kanya found several hazards in my father's home that we had completely missed. So grateful for her thoroughness."},
       {name:"Tom S.", stars:"★★★★☆", date:"Nov 2025", text:"Very friendly and efficient. Done in an hour and gave us a clear checklist of everything she checked."}
@@ -453,29 +669,21 @@ const carers = [
 
 let currentService = {};
 let carerFilter = 'all';
+const carerCategories = {1:['medical','social'],2:['outing','social'],3:['home','social']};
 
-const carerCategories = {
-  1: ['medical','social'],
-  2: ['outing','social'],
-  3: ['home','social']
-};
-
+/* ── TAB SWITCHING ── */
 function switchTab(tab, el){
-  // update home nav
-  document.querySelectorAll('#homeScreen .nav-item').forEach(i=>i.classList.remove('active'));
-  document.querySelectorAll('#carersScreen .nav-item').forEach(i=>i.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
   if(el) el.classList.add('active');
-
-  if(tab==='home'){
-    document.getElementById('homeScreen').classList.add('active');
-    document.getElementById('carersScreen').classList.remove('active');
-  } else {
-    document.getElementById('homeScreen').classList.remove('active');
-    document.getElementById('carersScreen').classList.add('active');
-    renderBrowseCarers(carers);
-  }
+  document.getElementById('homeScreen').classList.remove('active');
+  document.getElementById('carersScreen').classList.remove('active');
+  document.getElementById('mycareScreen').classList.remove('active');
+  if(tab==='home') document.getElementById('homeScreen').classList.add('active');
+  else if(tab==='carers'){ document.getElementById('carersScreen').classList.add('active'); renderBrowseCarers(carers); }
+  else if(tab==='mycare') document.getElementById('mycareScreen').classList.add('active');
 }
 
+/* ── BROWSE CARERS ── */
 function renderBrowseCarers(list){
   document.getElementById('carerCount').textContent = list.length;
   document.getElementById('carerBrowseList').innerHTML = list.map(c=>`
@@ -485,11 +693,7 @@ function renderBrowseCarers(list){
         <div class="browse-meta">
           <div class="browse-name">${c.name}</div>
           <div class="browse-role">${c.expRole}</div>
-          <div class="browse-rating">
-            <span class="browse-stars">★★★★★</span>
-            <span class="browse-num">${c.rating}</span>
-            <span class="browse-rev">(${c.reviews} reviews)</span>
-          </div>
+          <div class="browse-rating"><span class="browse-stars">★★★★★</span><span class="browse-num">${c.rating}</span><span class="browse-rev">(${c.reviews} reviews)</span></div>
           <span class="browse-verified">✓ Verified</span>
         </div>
       </div>
@@ -503,34 +707,28 @@ function renderBrowseCarers(list){
 }
 
 function filterCarers(val){
-  const q = val.toLowerCase();
-  const filtered = carers.filter(c=>
-    c.name.toLowerCase().includes(q) ||
-    c.tags.some(t=>t.toLowerCase().includes(q)) ||
-    c.bestAt.some(t=>t.toLowerCase().includes(q))
-  );
-  renderBrowseCarers(filtered);
+  const q=val.toLowerCase();
+  renderBrowseCarers(carers.filter(c=>c.name.toLowerCase().includes(q)||c.tags.some(t=>t.toLowerCase().includes(q))||c.bestAt.some(t=>t.toLowerCase().includes(q))));
 }
 
-function filterCarerChip(el, cat){
+function filterCarerChip(el,cat){
   document.querySelectorAll('#carerChips .chip').forEach(c=>c.classList.remove('active'));
   el.classList.add('active');
-  carerFilter = cat;
-  const filtered = cat==='all' ? carers : carers.filter(c=>(carerCategories[c.id]||[]).includes(cat));
-  renderBrowseCarers(filtered);
+  carerFilter=cat;
+  renderBrowseCarers(cat==='all'?carers:carers.filter(c=>(carerCategories[c.id]||[]).includes(cat)));
 }
 
 function openProfileFromBrowse(id){
-  const c = carers.find(x=>x.id===id);
+  const c=carers.find(x=>x.id===id);
   document.getElementById('profileHeaderName').textContent=c.name;
-  document.getElementById('profileContent').innerHTML = buildProfileHTML(c);
+  document.getElementById('profileContent').innerHTML=buildProfileHTML(c);
   document.getElementById('carersScreen').classList.remove('active');
   document.getElementById('profileScreen').classList.add('active');
-  document.getElementById('profileScreen').scrollTop=0;
-  // mark back origin
   document.getElementById('profileScreen').dataset.from='carers';
+  document.getElementById('profileScreen').scrollTop=0;
 }
 
+/* ── HOME CHIPS ── */
 function filterChip(el){
   document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
   el.classList.add('active');
@@ -542,6 +740,7 @@ function addTap(e,btn){
   setTimeout(()=>{btn.textContent='+';btn.style.background='var(--accent)'},1500);
 }
 
+/* ── SHEET ── */
 function openSheet(title,emoji,price,desc){
   currentService={title,emoji,price,desc};
   document.getElementById('sheetTitle').textContent=title;
@@ -560,18 +759,14 @@ function closeSheet(){
 }
 
 function carerCard(c){
-  const img = `<img src="${c.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none'">`;
+  const img=`<img src="${c.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none'">`;
   return `<div class="carer-card">
     <div class="carer-top">
       <div class="carer-avatar ${c.avClass}" style="overflow:hidden;padding:0">${img}</div>
       <div class="carer-meta">
         <div class="carer-name">${c.name}</div>
         <div class="carer-age">Age ${c.age} · ${c.location}</div>
-        <div class="carer-rating">
-          <span class="stars">★★★★★</span>
-          <span class="rating-num">${c.rating}</span>
-          <span class="review-count">(${c.reviews} reviews)</span>
-        </div>
+        <div class="carer-rating"><span class="stars">★★★★★</span><span class="rating-num">${c.rating}</span><span class="review-count">(${c.reviews} reviews)</span></div>
       </div>
       <span class="verified">✓ Verified</span>
     </div>
@@ -583,6 +778,7 @@ function carerCard(c){
   </div>`;
 }
 
+/* ── PROFILE ── */
 function buildProfileHTML(c){
   return `
     <div class="profile-hero">
@@ -591,45 +787,18 @@ function buildProfileHTML(c){
       </div>
       <div class="profile-name">${c.name}</div>
       <div class="profile-location">📍 ${c.location} · Age ${c.age}</div>
-      <div class="profile-rating-row">
-        <span class="p-stars">★★★★★</span>
-        <span class="p-rating">${c.rating}</span>
-        <span class="p-reviews">(${c.reviews} reviews)</span>
-      </div>
+      <div class="profile-rating-row"><span class="p-stars">★★★★★</span><span class="p-rating">${c.rating}</span><span class="p-reviews">(${c.reviews} reviews)</span></div>
       <span class="p-verified">✓ Verified Carer</span>
     </div>
-    <div class="profile-section">
-      <div class="p-sec-title">About Me</div>
-      <div class="p-bio">${c.bio}</div>
-    </div>
-    <div class="profile-section">
-      <div class="p-sec-title">Best At</div>
-      <div class="p-tags">${c.bestAt.map((t,i)=>`<span class="p-tag${i<2?' highlight':''}">${t}</span>`).join('')}</div>
-    </div>
-    <div class="profile-section">
-      <div class="p-sec-title">Experience</div>
-      <div class="exp-card">
-        <div class="exp-icon">🏥</div>
-        <div><div class="exp-title">${c.expRole}</div><div class="exp-sub">${c.experience}</div></div>
-      </div>
-    </div>
-    <div class="profile-section">
-      <div class="p-sec-title">Recent Reviews</div>
-      ${c.reviewsList.map(r=>`
-        <div class="review-card">
-          <div class="review-top"><span class="reviewer-name">${r.name}</span><span class="review-date">${r.date}</span></div>
-          <div class="review-stars">${r.stars}</div>
-          <div class="review-text">${r.text}</div>
-        </div>`).join('')}
-    </div>
-    <div class="profile-book-bar">
-      <div><div class="book-price">${c.price} <span>/ session</span></div></div>
-      <button class="book-btn">Book ${c.name.split(' ')[0]}</button>
-    </div>`;
+    <div class="profile-section"><div class="p-sec-title" data-icon="👤" style="--icon-bg:#EDE8FD;--icon-shadow:rgba(102,126,234,.2)">About Me</div><div class="p-bio">${c.bio}</div></div>
+    <div class="profile-section"><div class="p-sec-title" data-icon="⭐" style="--icon-bg:#FFF3DC;--icon-shadow:rgba(245,166,35,.2)">Best At</div><div class="p-tags">${c.bestAt.map((t,i)=>`<span class="p-tag${i<2?' highlight':''}">${t}</span>`).join('')}</div></div>
+    <div class="profile-section"><div class="p-sec-title" data-icon="💼" style="--icon-bg:#E8F4FD;--icon-shadow:rgba(76,130,245,.2)">Experience</div><div class="exp-card"><div class="exp-icon">🏥</div><div><div class="exp-title">${c.expRole}</div><div class="exp-sub">${c.experience}</div></div></div></div>
+    <div class="profile-section"><div class="p-sec-title" data-icon="💬" style="--icon-bg:#E8F7F0;--icon-shadow:rgba(76,175,130,.2)">Recent Reviews</div>${c.reviewsList.map(r=>`<div class="review-card"><div class="review-top"><span class="reviewer-name">${r.name}</span><span class="review-date">${r.date}</span></div><div class="review-stars">${r.stars}</div><div class="review-text">${r.text}</div></div>`).join('')}</div>
+    <div class="profile-book-bar"><div><div class="book-price">${c.price} <span>/ session</span></div></div><button class="book-btn">Book ${c.name.split(' ')[0]}</button></div>`;
 }
 
 function openProfile(id){
-  const c = carers.find(x=>x.id===id);
+  const c=carers.find(x=>x.id===id);
   document.getElementById('profileHeaderName').textContent=c.name;
   document.getElementById('profileContent').innerHTML=buildProfileHTML(c);
   closeSheet();
@@ -640,15 +809,20 @@ function openProfile(id){
 }
 
 function closeProfile(){
-  const from = document.getElementById('profileScreen').dataset.from;
+  const from=document.getElementById('profileScreen').dataset.from;
   document.getElementById('profileScreen').classList.remove('active');
-  if(from==='carers'){
-    document.getElementById('carersScreen').classList.add('active');
-  } else {
-    document.getElementById('homeScreen').classList.add('active');
-    openSheet(currentService.title,currentService.emoji,currentService.price,currentService.desc);
-  }
+  if(from==='carers') document.getElementById('carersScreen').classList.add('active');
+  else{ document.getElementById('homeScreen').classList.add('active'); openSheet(currentService.title,currentService.emoji,currentService.price,currentService.desc); }
 }
+
+/* ── MOOD BUTTONS ── */
+document.addEventListener('click',e=>{
+  if(e.target.closest('.mood-btn')){
+    const btn=e.target.closest('.mood-btn');
+    btn.closest('.mood-row').querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+  }
+});
 </script>
 </body>
 </html>
