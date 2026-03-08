@@ -382,6 +382,125 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 .sb-btn{flex:1;border-radius:13px;padding:14px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none}
 .sb-primary{background:var(--accent);color:#fff;box-shadow:0 4px 14px rgba(245,166,35,.3)}
 .sb-secondary{background:var(--bg);color:var(--dark)}
+
+/* ── USER PROFILE SCREEN ── */
+.uprofile-hero{background:var(--dark);padding:28px 20px 0;position:relative;overflow:hidden}
+.uprofile-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.18),transparent 70%);pointer-events:none}
+.uprofile-hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(76,175,130,.12),transparent 70%);pointer-events:none}
+.uph-top{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.uph-avatar{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#e8831a);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;box-shadow:0 4px 16px rgba(245,166,35,.4);border:3px solid rgba(255,255,255,.15)}
+.uph-info{flex:1}
+.uph-name{font-size:18px;font-weight:800;color:#fff}
+.uph-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
+.uph-edit{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:7px 14px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#fff;cursor:pointer}
+
+/* Tier badge */
+.tier-badge{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;margin-top:6px}
+.tier-silver{background:rgba(192,192,192,.2);border:1px solid rgba(192,192,192,.4);color:#c8c8c8}
+.tier-gold{background:rgba(245,166,35,.2);border:1px solid rgba(245,166,35,.4);color:#F5A623}
+.tier-platinum{background:rgba(147,197,253,.2);border:1px solid rgba(147,197,253,.4);color:#93c5fd}
+.tier-diamond{background:rgba(167,243,208,.2);border:1px solid rgba(167,243,208,.4);color:#6ee7b7}
+
+/* Points card inside hero */
+.points-strip{background:rgba(255,255,255,.07);border-top:1px solid rgba(255,255,255,.1);margin:0 -20px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.pts-left{display:flex;align-items:baseline;gap:6px}
+.pts-num{font-size:28px;font-weight:800;color:#F5A623}
+.pts-label{font-size:12px;color:rgba(255,255,255,.5);font-weight:500}
+.pts-right{text-align:right}
+.pts-next{font-size:11px;color:rgba(255,255,255,.4)}
+.pts-next strong{color:rgba(255,255,255,.7)}
+
+/* Progress to next tier */
+.tier-progress-wrap{background:rgba(255,255,255,.07);margin:0 -20px;padding:14px 20px 20px;border-top:1px solid rgba(255,255,255,.08)}
+.tpw-labels{display:flex;justify-content:space-between;margin-bottom:7px}
+.tpw-cur{font-size:11px;font-weight:700;color:var(--accent)}
+.tpw-nxt{font-size:11px;color:rgba(255,255,255,.4)}
+.tier-prog-bar{height:6px;background:rgba(255,255,255,.12);border-radius:6px;overflow:hidden}
+.tier-prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),#ffce67);border-radius:6px;transition:width .6s ease}
+
+/* Tier cards row */
+.tier-section{padding:18px 20px 4px}
+.tier-cards-scroll{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.tier-cards-scroll::-webkit-scrollbar{display:none}
+.tier-card{min-width:110px;border-radius:16px;padding:14px 12px;flex-shrink:0;border:2px solid transparent;position:relative;overflow:hidden}
+.tier-card.active-tier{border-color:var(--accent)}
+.tc-icon{font-size:22px;margin-bottom:6px}
+.tc-name{font-size:12px;font-weight:700;margin-bottom:2px}
+.tc-pts{font-size:10px;opacity:.7}
+.tc-current{position:absolute;top:8px;right:8px;background:var(--accent);border-radius:20px;font-size:8px;font-weight:700;color:#fff;padding:2px 6px}
+.tier-silver-card{background:linear-gradient(135deg,#3a3a4a,#2d2d3d);color:#c8c8c8}
+.tier-gold-card{background:linear-gradient(135deg,#4a3800,#3d2e00);color:#F5A623}
+.tier-platinum-card{background:linear-gradient(135deg,#1a3040,#0d2030);color:#93c5fd}
+.tier-diamond-card{background:linear-gradient(135deg,#0d3025,#061a15);color:#6ee7b7}
+
+/* Points history */
+.pts-history-card{background:var(--white);border-radius:16px;margin:0 20px 12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.phc-row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.phc-row:last-child{border-bottom:none}
+.phc-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.phc-info{flex:1}
+.phc-title{font-size:13px;font-weight:600;color:var(--dark)}
+.phc-date{font-size:11px;color:var(--muted);margin-top:1px}
+.phc-pts{font-size:14px;font-weight:700}
+.phc-pts.earn{color:var(--green)}
+.phc-pts.use{color:#e74c3c}
+
+/* Rewards */
+.reward-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px}
+.reward-card{background:var(--white);border-radius:16px;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,.05);cursor:pointer;transition:transform .15s;position:relative;overflow:hidden}
+.reward-card:active{transform:scale(.97)}
+.rw-icon{font-size:28px;margin-bottom:8px}
+.rw-name{font-size:12px;font-weight:700;color:var(--dark);margin-bottom:4px;line-height:1.3}
+.rw-cost{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--accent)}
+.rw-badge{position:absolute;top:8px;right:8px;background:var(--accent);border-radius:6px;font-size:8px;font-weight:700;color:#fff;padding:2px 6px}
+.rw-locked{opacity:.45;cursor:not-allowed}
+.rw-locked .rw-cost{color:var(--muted)}
+
+/* Stats row */
+.stats-row{display:flex;gap:10px;padding:0 20px;margin-bottom:4px}
+.stat-pill{flex:1;background:var(--white);border-radius:14px;padding:14px 10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.stat-num{font-size:20px;font-weight:800;color:var(--dark)}
+.stat-lbl{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* CarePoints star dots */
+.cp-dot{flex:1;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .3s;position:relative}
+.cp-dot.filled{background:rgba(245,166,35,.25);border:2px solid var(--accent);box-shadow:0 0 8px rgba(245,166,35,.3)}
+.cp-dot.filled svg{fill:var(--accent)}
+.cp-dot.half{background:rgba(245,166,35,.1);border:2px solid rgba(245,166,35,.4)}
+.cp-dot.half svg{fill:url(#halfGrad)}
+.cp-dot.empty{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12)}
+.cp-dot.empty svg{fill:rgba(255,255,255,.15)}
+
+/* History */
+.hist-filter{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;background:var(--bg);color:var(--muted);transition:all .2s}
+.hist-filter.active{background:var(--accent);color:#fff}
+.hist-card{background:var(--white);border-radius:16px;padding:14px 16px;box-shadow:0 2px 10px rgba(0,0,0,.05);cursor:pointer;transition:transform .15s;display:flex;align-items:center;gap:12px}
+.hist-card:active{transform:scale(.98)}
+.hist-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hist-body{flex:1;min-width:0}
+.hist-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.hist-sub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hist-right{text-align:right;flex-shrink:0}
+.hist-pts{font-size:15px;font-weight:800}
+.hist-pts.earn{color:var(--green)}
+.hist-pts.use{color:#e74c3c}
+.hist-date{font-size:10px;color:var(--muted);margin-top:2px}
+.hist-arrow{font-size:12px;color:var(--muted);margin-left:6px}
+
+/* History detail sheet */
+.hds-hero{padding:20px 20px 16px;border-bottom:1px solid var(--border)}
+.hds-icon-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.hds-big-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.hds-title{font-size:17px;font-weight:800;color:var(--dark)}
+.hds-type{font-size:12px;color:var(--muted);margin-top:2px}
+.hds-pts-badge{display:inline-flex;align-items:center;gap:6px;border-radius:12px;padding:8px 16px;font-size:18px;font-weight:800;margin-top:2px}
+.hds-pts-badge.earn{background:#E8F7F0;color:var(--green)}
+.hds-pts-badge.use{background:#FFEBEB;color:#e74c3c}
+.hds-detail-rows{padding:16px 20px}
+.hds-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
+.hds-row:last-child{border-bottom:none}
+.hds-lbl{font-size:12px;color:var(--muted)}
+.hds-val{font-size:13px;font-weight:600;color:var(--dark);text-align:right;max-width:200px}
 </style>
 </head>
 <body>
@@ -390,7 +509,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 <div class="screen active" id="homeScreen">
   <div class="topnav">
     <span class="menu-icon">☰</span>
-    <div class="logo">CareGaroo🧡</div>
+    <div class="logo">CareCompanion 🧡</div>
     <div class="avatar-sm">👤</div>
   </div>
   <div style="overflow-y:auto;flex:1;padding-bottom:160px">
@@ -494,7 +613,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
     <a class="nav-item" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
     <a class="nav-book" onclick="openBooking()"><span class="nicon">📅</span>Book</a>
     <a class="nav-item" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
-    <a class="nav-item"><span class="nicon">👤</span>Profile</a>
+    <a class="nav-item" onclick="switchTab('profile',this)"><span class="nicon">👤</span>Profile</a>
   </nav>
 </div>
 
@@ -535,7 +654,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
     <a class="nav-item active" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
     <a class="nav-book" onclick="openBooking()"><span class="nicon">📅</span>Book</a>
     <a class="nav-item" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
-    <a class="nav-item"><span class="nicon">👤</span>Profile</a>
+    <a class="nav-item" onclick="switchTab('profile',this)"><span class="nicon">👤</span>Profile</a>
   </nav>
 </div>
 
@@ -695,7 +814,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
     <a class="nav-item" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
     <a class="nav-book" onclick="openBooking()"><span class="nicon">📅</span>Book</a>
     <a class="nav-item active" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
-    <a class="nav-item"><span class="nicon">👤</span>Profile</a>
+    <a class="nav-item" onclick="switchTab('profile',this)"><span class="nicon">👤</span>Profile</a>
   </nav>
 </div>
 
@@ -873,8 +992,8 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
       <div class="section-label"><span>📝</span> Special Instructions</div>
       <div class="notes-block">
         <textarea class="notes-textarea" rows="3" id="specialNotes" placeholder="E.g. Needs wheelchair at hospital entrance. Allergic to penicillin. Prefers Thai-speaking carer..."></textarea>
+      </div>
     </div>
-</div>
 
     <!-- STEP 5: Confirm -->
     <div class="book-step" id="bstep5">
@@ -926,6 +1045,166 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
     <button class="bab-back" id="babBack" onclick="bookPrev()">←</button>
     <button class="bab-next" id="babNext" onclick="bookNext()">Choose Date & Time →</button>
   </div>
+</div>
+
+<!-- ══════════════ USER PROFILE SCREEN ══════════════ -->
+<div class="screen" id="userProfileScreen">
+  <div class="topnav">
+    <span class="menu-icon">☰</span>
+    <div class="logo">My Profile 👤</div>
+    <div class="avatar-sm">👤</div>
+  </div>
+  <div style="overflow-y:auto;flex:1;padding-bottom:90px">
+
+    <!-- Hero -->
+    <div class="uprofile-hero">
+      <div class="uph-top">
+        <div class="uph-avatar">👤</div>
+        <div class="uph-info">
+          <div class="uph-name">Somchai Jaidee</div>
+          <div class="uph-sub">Member since Jan 2025 · Bangkok</div>
+          <div class="tier-badge tier-gold">🥇 Gold Member</div>
+        </div>
+        <button class="uph-edit">Edit</button>
+      </div>
+      <!-- Points -->
+      <div class="points-strip">
+        <div style="width:100%">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+            <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.5px;text-transform:uppercase">CarePoints</div>
+            <div style="font-size:12px;font-weight:700;color:var(--accent)">2,450 pts</div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center" id="carePointsDots"></div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px">
+            <div style="font-size:10px;color:rgba(255,255,255,.35)">0</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.35)">3,000 pts to Platinum</div>
+          </div>
+        </div>
+      </div>
+      <!-- Progress bar -->
+      <div class="tier-progress-wrap">
+        <div class="tpw-labels">
+          <span class="tpw-cur">🥇 Gold (2,000)</span>
+          <span class="tpw-nxt">💎 Platinum (3,000)</span>
+        </div>
+        <div class="tier-prog-bar">
+          <div class="tier-prog-fill" style="width:45%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="section-label"><span>📊</span> My Stats</div>
+    <div class="stats-row">
+      <div class="stat-pill"><div class="stat-num">14</div><div class="stat-lbl">Bookings</div></div>
+      <div class="stat-pill"><div class="stat-num">3</div><div class="stat-lbl">Carers Used</div></div>
+      <div class="stat-pill"><div class="stat-num">2,450</div><div class="stat-lbl">Points</div></div>
+    </div>
+
+    <!-- Tier Ladder -->
+    <div class="tier-section">
+      <div class="section-label" style="padding:0 0 10px"><span>🏆</span> Tier System</div>
+      <div class="tier-cards-scroll">
+        <div class="tier-card tier-silver-card">
+          <div class="tc-icon">🥈</div>
+          <div class="tc-name">Silver</div>
+          <div class="tc-pts">0 – 999 pts</div>
+          <div style="font-size:9px;margin-top:6px;opacity:.6">• 3% discount<br>• Priority support</div>
+        </div>
+        <div class="tier-card tier-gold-card active-tier">
+          <div class="tc-current">YOU</div>
+          <div class="tc-icon">🥇</div>
+          <div class="tc-name">Gold</div>
+          <div class="tc-pts">1,000 – 2,999 pts</div>
+          <div style="font-size:9px;margin-top:6px;opacity:.8">• 7% discount<br>• Free cancellation<br>• Early booking</div>
+        </div>
+        <div class="tier-card tier-platinum-card">
+          <div class="tc-icon">💠</div>
+          <div class="tc-name">Platinum</div>
+          <div class="tc-pts">3,000 – 5,999 pts</div>
+          <div style="font-size:9px;margin-top:6px;opacity:.6">• 12% discount<br>• Dedicated carer<br>• Monthly report</div>
+        </div>
+        <div class="tier-card tier-diamond-card">
+          <div class="tc-icon">💎</div>
+          <div class="tc-name">Diamond</div>
+          <div class="tc-pts">6,000+ pts</div>
+          <div style="font-size:9px;margin-top:6px;opacity:.6">• 18% discount<br>• VIP carer team<br>• Free monthly visit</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rewards -->
+    <div class="section-label"><span>🎁</span> Redeem Rewards</div>
+    <div class="reward-grid">
+      <div class="reward-card">
+        <div class="rw-badge">HOT</div>
+        <div class="rw-icon">🏥</div>
+        <div class="rw-name">Free Hospital Visit</div>
+        <div class="rw-cost">🪙 500 pts</div>
+      </div>
+      <div class="reward-card">
+        <div class="rw-icon">☕</div>
+        <div class="rw-name">Coffee Voucher</div>
+        <div class="rw-cost">🪙 200 pts</div>
+      </div>
+      <div class="reward-card">
+        <div class="rw-icon">🌳</div>
+        <div class="rw-name">Free Senior Outing</div>
+        <div class="rw-cost">🪙 800 pts</div>
+      </div>
+      <div class="reward-card rw-locked">
+        <div class="rw-icon">💠</div>
+        <div class="rw-name">Platinum Upgrade Boost</div>
+        <div class="rw-cost">🔒 Platinum only</div>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px 10px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--dark)"><span style="font-size:16px">🕐</span> Booking History</div>
+      <div style="display:flex;gap:6px">
+        <div class="hist-filter active" onclick="filterHistory('all',this)">All</div>
+        <div class="hist-filter" onclick="filterHistory('earn',this)">Earned</div>
+        <div class="hist-filter" onclick="filterHistory('use',this)">Used</div>
+      </div>
+    </div>
+
+    <!-- Running balance bar -->
+    <div style="margin:0 20px 14px;background:var(--white);border-radius:14px;padding:12px 16px;display:flex;justify-content:space-between;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+      <div style="text-align:center">
+        <div style="font-size:16px;font-weight:800;color:var(--green)">+980</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:1px">Total Earned</div>
+      </div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div style="text-align:center">
+        <div style="font-size:16px;font-weight:800;color:#e74c3c">−200</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:1px">Total Used</div>
+      </div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div style="text-align:center">
+        <div style="font-size:16px;font-weight:800;color:var(--accent)">2,450</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:1px">Balance</div>
+      </div>
+    </div>
+
+    <div id="historyList" style="padding:0 20px;display:flex;flex-direction:column;gap:10px;margin-bottom:10px"></div>
+
+    <div style="height:20px"></div>
+  </div>
+  <nav class="bottom-nav">
+    <a class="nav-item" onclick="switchTab('home',this)"><span class="nicon">🏠</span>Home</a>
+    <a class="nav-item" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
+    <a class="nav-book" onclick="openBooking()"><span class="nicon">📅</span>Book</a>
+    <a class="nav-item" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
+    <a class="nav-item active" onclick="switchTab('profile',this)"><span class="nicon">👤</span>Profile</a>
+  </nav>
+</div>
+
+<!-- ══════════════ HISTORY DETAIL SHEET ══════════════ -->
+<div class="overlay" id="histOverlay" onclick="closeHistDetail()"></div>
+<div class="sheet" id="histSheet">
+  <div class="sheet-handle"></div>
+  <div id="histSheetContent"></div>
 </div>
 
 <!-- ══════════════ OVERLAY + SHEET ══════════════ -->
@@ -1016,9 +1295,11 @@ function switchTab(tab, el){
   document.getElementById('carersScreen').classList.remove('active');
   document.getElementById('mycareScreen').classList.remove('active');
   document.getElementById('bookingScreen').classList.remove('active');
+  document.getElementById('userProfileScreen').classList.remove('active');
   if(tab==='home') document.getElementById('homeScreen').classList.add('active');
   else if(tab==='carers'){ document.getElementById('carersScreen').classList.add('active'); renderBrowseCarers(carers); }
   else if(tab==='mycare') document.getElementById('mycareScreen').classList.add('active');
+  else if(tab==='profile'){ document.getElementById('userProfileScreen').classList.add('active'); renderCarePoints(); renderHistory('all'); }
 }
 
 /* ── BROWSE CARERS ── */
@@ -1179,7 +1460,144 @@ function closeProfile(){
   else{ document.getElementById('homeScreen').classList.add('active'); openSheet(currentService.title,currentService.emoji,currentService.price,currentService.desc); }
 }
 
-/* ── MOOD BUTTONS ── */
+/* ── HISTORY DATA & LOGIC ── */
+const historyData = [
+  {
+    id:1, type:'earn', icon:'🏥', iconBg:'#E8F7F0', title:'Hospital Companion',
+    sub:'Nipa Srisuk · Bumrungrad Hospital', pts:130, date:'Mar 6, 2026',
+    details:{ service:'Hospital Companion', carer:'Nipa Srisuk', duration:'4 hours', location:'Bumrungrad Hospital, Bangkok', serviceFee:'1,300฿', pointRate:'10 pts per 100฿', status:'Completed ✓', bookingRef:'#CC-20260306-001', note:'Escort, waited during consultation, sent summary report to family.' }
+  },
+  {
+    id:2, type:'use', icon:'🎁', iconBg:'#FFF3DC', title:'Redeemed: Coffee Voucher',
+    sub:'Café Amazon · 1 voucher used', pts:-200, date:'Feb 28, 2026',
+    details:{ reward:'Coffee Voucher (Café Amazon)', redeemedAt:'Profile > Rewards', pointsUsed:'200 pts', balanceBefore:'2,520 pts', balanceAfter:'2,320 pts', status:'Redeemed ✓', voucherCode:'CARE-CV-8821', expiry:'Mar 28, 2026', note:'Voucher sent to registered email.' }
+  },
+  {
+    id:3, type:'earn', icon:'🌳', iconBg:'#E8F7F0', title:'Senior Outing',
+    sub:'Malee Wongsuk · Lumpini Park', pts:100, date:'Feb 20, 2026',
+    details:{ service:'Senior Outing', carer:'Malee Wongsuk', duration:'2 hours', location:'Lumpini Park, Bangkok', serviceFee:'1,000฿', pointRate:'10 pts per 100฿', status:'Completed ✓', bookingRef:'#CC-20260220-003', note:'Park walk and lunch. Recipient was in excellent spirits throughout.' }
+  },
+  {
+    id:4, type:'earn', icon:'🩺', iconBg:'#E8F4FD', title:'Health Check-up Trip',
+    sub:'Nipa Srisuk · Bangkok Hospital', pts:150, date:'Feb 10, 2026',
+    details:{ service:'Health Check-up Trip', carer:'Nipa Srisuk', duration:'Full day (8 hrs)', location:'Bangkok Hospital, Silom', serviceFee:'1,500฿', pointRate:'10 pts per 100฿', status:'Completed ✓', bookingRef:'#CC-20260210-002', note:'Annual health screening. Carer provided detailed summary of all doctor instructions.' }
+  },
+  {
+    id:5, type:'earn', icon:'⭐', iconBg:'#FFF3DC', title:'Gold Tier Upgrade Bonus',
+    sub:'Automatic reward · Tier milestone', pts:500, date:'Jan 15, 2026',
+    details:{ reward:'Tier Upgrade Bonus', tier:'Gold Member 🥇', pointsAwarded:'500 pts (one-time bonus)', triggerAt:'1,000 pts total', status:'Awarded ✓', note:'Congratulations! You reached Gold tier. Enjoy 7% discounts, free cancellation, and early booking access.' }
+  },
+  {
+    id:6, type:'earn', icon:'🏠', iconBg:'#FADBD8', title:'Home Safety Check',
+    sub:'Kanya Thongdee · Home visit', pts:100, date:'Jan 5, 2026',
+    details:{ service:'Home Safety Check', carer:'Kanya Thongdee', duration:'2 hours', location:'42/5 Sukhumvit Soi 11, Bangkok', serviceFee:'1,000฿', pointRate:'10 pts per 100฿', status:'Completed ✓', bookingRef:'#CC-20260105-001', note:'Hazard inspection completed. 4 items flagged and resolved same day.' }
+  }
+];
+
+let histFilter = 'all';
+
+function renderHistory(filter){
+  const list = document.getElementById('historyList');
+  if(!list) return;
+  const items = filter === 'all' ? historyData : historyData.filter(h => h.type === filter);
+  list.innerHTML = items.map(h => `
+    <div class="hist-card" onclick="openHistDetail(${h.id})">
+      <div class="hist-icon" style="background:${h.iconBg}">${h.icon}</div>
+      <div class="hist-body">
+        <div class="hist-title">${h.title}</div>
+        <div class="hist-sub">${h.sub}</div>
+      </div>
+      <div class="hist-right">
+        <div class="hist-pts ${h.type}">${h.pts > 0 ? '+' : ''}${h.pts} pts</div>
+        <div class="hist-date">${h.date}</div>
+      </div>
+      <span class="hist-arrow">›</span>
+    </div>`).join('');
+}
+
+function filterHistory(f, el){
+  document.querySelectorAll('.hist-filter').forEach(x => x.classList.remove('active'));
+  el.classList.add('active');
+  histFilter = f;
+  renderHistory(f);
+}
+
+function openHistDetail(id){
+  const h = historyData.find(x => x.id === id);
+  const d = h.details;
+  const isEarn = h.type === 'earn';
+  const labels = {
+    service:'Service', carer:'Carer', duration:'Duration', location:'Location',
+    serviceFee:'Service Fee', pointRate:'Points Rate', status:'Status',
+    bookingRef:'Booking Ref', note:'Note', reward:'Reward', redeemedAt:'Redeemed Via',
+    pointsUsed:'Points Used', balanceBefore:'Balance Before', balanceAfter:'Balance After',
+    voucherCode:'Voucher Code', expiry:'Expiry', pointsAwarded:'Points Awarded',
+    triggerAt:'Milestone', tier:'Tier Achieved'
+  };
+  const rows = Object.entries(d).map(([k,v]) =>
+    `<div class="hds-row"><span class="hds-lbl">${labels[k]||k}</span><span class="hds-val">${v}</span></div>`
+  ).join('');
+  document.getElementById('histSheetContent').innerHTML = `
+    <div class="hds-hero">
+      <div class="hds-icon-row">
+        <div class="hds-big-icon" style="background:${h.iconBg}">${h.icon}</div>
+        <div>
+          <div class="hds-title">${h.title}</div>
+          <div class="hds-type">${h.date} · ${isEarn ? 'Points Earned' : 'Points Used'}</div>
+        </div>
+      </div>
+      <div class="hds-pts-badge ${h.type}">${isEarn ? '🪙 +' : '🪙 '}${Math.abs(h.pts)} CarePoints</div>
+    </div>
+    <div class="hds-detail-rows">${rows}</div>`;
+  document.getElementById('histOverlay').classList.add('show');
+  document.getElementById('histSheet').classList.add('open');
+}
+
+function closeHistDetail(){
+  document.getElementById('histOverlay').classList.remove('show');
+  document.getElementById('histSheet').classList.remove('open');
+}
+
+/* ── CARE POINTS DOTS ── */
+function renderCarePoints(){
+  const wrap = document.getElementById('carePointsDots');
+  if(!wrap) return;
+  // 2450 out of 3000 = 81.7% → 8.17 dots filled out of 10
+  const total = 3000, current = 2450, dots = 10;
+  const filled = current / total * dots; // 8.17
+  const fullDots = Math.floor(filled);   // 8
+  const partial = filled - fullDots;     // 0.17 → show as half if > 0.1
+
+  const starSVG = (pct) => {
+    const id = 'g'+Math.random().toString(36).slice(2);
+    if(pct >= 1) return `<svg width="16" height="16" viewBox="0 0 24 24"><polygon fill="#F5A623" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>`;
+    if(pct <= 0) return `<svg width="16" height="16" viewBox="0 0 24 24"><polygon fill="rgba(255,255,255,.15)" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>`;
+    // partial
+    return `<svg width="16" height="16" viewBox="0 0 24 24">
+      <defs><linearGradient id="${id}" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="${pct*100}%" stop-color="#F5A623"/>
+        <stop offset="${pct*100}%" stop-color="rgba(255,255,255,.15)"/>
+      </linearGradient></defs>
+      <polygon fill="url(#${id})" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+    </svg>`;
+  };
+
+  wrap.innerHTML = '';
+  for(let i = 0; i < dots; i++){
+    const div = document.createElement('div');
+    if(i < fullDots){
+      div.className = 'cp-dot filled';
+      div.innerHTML = starSVG(1);
+    } else if(i === fullDots && partial > 0.05){
+      div.className = 'cp-dot half';
+      div.innerHTML = starSVG(partial);
+    } else {
+      div.className = 'cp-dot empty';
+      div.innerHTML = starSVG(0);
+    }
+    wrap.appendChild(div);
+  }
+}
 document.addEventListener('click',e=>{
   if(e.target.closest('.mood-btn')){
     const btn=e.target.closest('.mood-btn');
