@@ -265,6 +265,123 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 .grid .svc-card:nth-child(4){animation-delay:.26s}
 .grid .svc-card:nth-child(5){animation-delay:.33s}
 .grid .svc-card:nth-child(6){animation-delay:.40s}
+
+/* ── BOOKING SCREEN ── */
+.book-hero{background:var(--dark);padding:26px 20px 22px;position:relative;overflow:hidden}
+.book-hero::after{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.15),transparent 70%);pointer-events:none}
+.book-hero h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:4px}
+.book-hero p{font-size:13px;color:rgba(255,255,255,.5)}
+.progress-bar{display:flex;align-items:center;padding:16px 20px 8px;background:var(--white);border-bottom:1px solid var(--border)}
+.prog-step{display:flex;flex-direction:column;align-items:center;flex:1;gap:4px}
+.prog-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transition:all .25s}
+.prog-dot.done{background:var(--green);color:#fff}
+.prog-dot.active{background:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(245,166,35,.2)}
+.prog-dot.pending{background:var(--border);color:var(--muted)}
+.prog-label{font-size:9px;font-weight:600;color:var(--muted);white-space:nowrap}
+.prog-label.active{color:var(--accent)}
+.prog-label.done{color:var(--green)}
+.prog-line{flex:1;height:2px;background:var(--border);margin-bottom:14px;transition:background .25s}
+.prog-line.done{background:var(--green)}
+.book-step{display:none;padding:0 0 110px}
+.book-step.active{display:block}
+.section-label{font-size:13px;font-weight:700;color:var(--dark);padding:18px 20px 10px;display:flex;align-items:center;gap:8px}
+.section-label span{font-size:16px}
+.svc-pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px}
+.svc-pick-card{border-radius:16px;padding:14px;border:2px solid var(--border);background:var(--white);cursor:pointer;transition:all .2s;text-align:left}
+.svc-pick-card.selected{border-color:var(--accent);background:#FFF9EE}
+.svc-pick-card .spc-icon{font-size:28px;margin-bottom:8px}
+.svc-pick-card .spc-name{font-size:12px;font-weight:700;color:var(--dark);margin-bottom:2px;line-height:1.3}
+.svc-pick-card .spc-price{font-size:11px;color:var(--accent);font-weight:600}
+.svc-pick-card .spc-check{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;margin-top:8px;transition:all .2s}
+.svc-pick-card.selected .spc-check{background:var(--accent);border-color:var(--accent)}
+.date-scroll{display:flex;gap:10px;padding:0 20px 4px;overflow-x:auto;scrollbar-width:none}
+.date-scroll::-webkit-scrollbar{display:none}
+.date-chip{min-width:54px;border-radius:14px;padding:10px 6px;text-align:center;border:2px solid var(--border);background:var(--white);cursor:pointer;transition:all .2s;flex-shrink:0}
+.date-chip.selected{border-color:var(--accent);background:var(--accent)}
+.date-chip .dc-day{font-size:9px;font-weight:600;color:var(--muted)}
+.date-chip.selected .dc-day{color:rgba(255,255,255,.8)}
+.date-chip .dc-num{font-size:18px;font-weight:800;color:var(--dark)}
+.date-chip.selected .dc-num{color:#fff}
+.date-chip .dc-mon{font-size:9px;color:var(--muted)}
+.date-chip.selected .dc-mon{color:rgba(255,255,255,.7)}
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 20px}
+.time-chip{border-radius:10px;padding:10px 6px;text-align:center;border:2px solid var(--border);background:var(--white);cursor:pointer;transition:all .2s;font-size:12px;font-weight:600;color:var(--dark)}
+.time-chip.selected{border-color:var(--accent);background:#FFF9EE;color:var(--accent)}
+.time-chip.unavail{background:var(--bg);color:var(--muted);cursor:not-allowed;border-color:transparent}
+.duration-row{display:flex;gap:8px;padding:0 20px}
+.dur-btn{flex:1;border-radius:10px;padding:10px;text-align:center;border:2px solid var(--border);background:var(--white);cursor:pointer;transition:all .2s}
+.dur-btn.selected{border-color:var(--accent);background:#FFF9EE}
+.dur-btn .db-label{font-size:13px;font-weight:700;color:var(--dark)}
+.dur-btn.selected .db-label{color:var(--accent)}
+.dur-btn .db-sub{font-size:10px;color:var(--muted);margin-top:2px}
+.carer-pick-card{background:var(--white);border-radius:16px;padding:14px;margin:0 20px 12px;border:2px solid var(--border);cursor:pointer;transition:all .2s}
+.carer-pick-card.selected{border-color:var(--accent);background:#FFF9EE}
+.cpc-top{display:flex;align-items:center;gap:12px}
+.cpc-avatar{width:52px;height:52px;border-radius:14px;overflow:hidden;flex-shrink:0}
+.cpc-avatar img{width:100%;height:100%;object-fit:cover}
+.cpc-meta{flex:1}
+.cpc-name{font-size:14px;font-weight:700;color:var(--dark)}
+.cpc-role{font-size:11px;color:var(--muted);margin-top:1px}
+.cpc-rating{display:flex;align-items:center;gap:4px;margin-top:3px}
+.cpc-stars{color:var(--accent);font-size:11px}
+.cpc-num{font-size:11px;font-weight:600;color:var(--dark)}
+.cpc-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;font-size:10px;color:transparent}
+.cpc-radio.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.cpc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.cpc-tag{background:var(--bg);border:1px solid var(--border);border-radius:20px;font-size:10px;font-weight:500;padding:3px 9px;color:var(--text)}
+.cpc-bio{font-size:12px;color:var(--muted);line-height:1.55;margin-top:8px}
+.cpc-actions{display:flex;gap:8px;margin-top:12px}
+.cpc-btn-outline{flex:1;background:transparent;border:1.5px solid var(--accent);color:var(--accent);border-radius:10px;padding:9px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+.cpc-btn-outline:active{background:var(--accent);color:#fff}
+.cpc-btn-fill{flex:1;background:var(--bg);border:1.5px solid var(--border);color:var(--muted);border-radius:10px;padding:9px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.cpc-btn-fill.selected,.carer-pick-card.selected .cpc-btn-fill{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 3px 10px rgba(245,166,35,.3)}
+.any-carer-btn{margin:0 20px 14px;border-radius:14px;padding:14px;border:2px dashed var(--border);background:var(--white);cursor:pointer;display:flex;align-items:center;gap:12px;width:calc(100% - 40px);transition:all .2s}
+.any-carer-btn.selected{border-color:var(--accent);background:#FFF9EE}
+.any-carer-btn .acb-icon{width:44px;height:44px;border-radius:12px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.any-carer-btn .acb-text{font-size:13px;font-weight:600;color:var(--muted)}
+.any-carer-btn.selected .acb-text{color:var(--accent)}
+.notes-block{padding:0 20px}
+.notes-textarea{width:100%;border-radius:14px;border:2px solid var(--border);padding:13px 15px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--text);resize:none;outline:none;background:var(--white);transition:border-color .2s;line-height:1.6;box-sizing:border-box}
+.notes-textarea:focus{border-color:var(--accent)}
+.recipient-row{display:flex;flex-direction:column;gap:10px;padding:0 20px}
+.recipient-card{background:var(--white);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;border:2px solid var(--border);cursor:pointer;transition:all .2s}
+.recipient-card.selected{border-color:var(--accent);background:#FFF9EE}
+.rc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.rc-name{font-size:13px;font-weight:700;color:var(--dark)}
+.rc-rel{font-size:11px;color:var(--muted);margin-top:1px}
+.rc-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;margin-left:auto;transition:all .2s;flex-shrink:0}
+.rc-radio.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.confirm-summary{background:var(--white);border-radius:18px;margin:16px 20px 0;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.cs-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--border)}
+.cs-row:last-child{border-bottom:none}
+.cs-label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.cs-value{font-size:13px;font-weight:600;color:var(--dark)}
+.price-breakdown{background:var(--white);border-radius:18px;margin:12px 20px 0;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.pb-row{display:flex;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);font-size:13px}
+.pb-row:last-child{border-bottom:none;font-weight:700;font-size:14px}
+.pb-label{color:var(--muted)}
+.pb-val{font-weight:600;color:var(--dark)}
+.pb-row.total{background:var(--bg)}
+.terms-check{display:flex;align-items:flex-start;gap:10px;padding:14px 20px 0;font-size:12px;color:var(--muted);line-height:1.55}
+.terms-check input{margin-top:2px;accent-color:var(--accent);flex-shrink:0}
+.terms-check a{color:var(--accent);font-weight:600}
+.book-action-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;background:var(--white);border-top:1px solid var(--border);padding:12px 20px 24px;z-index:50;display:flex;gap:10px;align-items:center}
+.bab-back{background:var(--bg);border:none;border-radius:12px;width:44px;height:48px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bab-next{flex:1;background:var(--accent);border:none;color:#fff;border-radius:13px;height:48px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(245,166,35,.35);transition:all .2s}
+.bab-next:active{transform:scale(.97)}
+.success-wrap{display:none;flex-direction:column;align-items:center;padding:36px 24px;text-align:center}
+.success-wrap.show{display:flex}
+.success-icon{width:86px;height:86px;border-radius:50%;background:linear-gradient(135deg,#4CAF82,#38b87a);display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:20px;box-shadow:0 8px 28px rgba(76,175,130,.3);animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.success-title{font-size:22px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.success-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.success-card{background:var(--white);border-radius:18px;padding:16px;width:100%;box-shadow:0 4px 18px rgba(0,0,0,.07);margin-bottom:20px}
+.sc-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px}
+.scl{color:var(--muted)}.scv{font-weight:700;color:var(--dark)}
+.success-btns{display:flex;gap:10px;width:100%}
+.sb-btn{flex:1;border-radius:13px;padding:14px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none}
+.sb-primary{background:var(--accent);color:#fff;box-shadow:0 4px 14px rgba(245,166,35,.3)}
+.sb-secondary{background:var(--bg);color:var(--dark)}
 </style>
 </head>
 <body>
@@ -273,7 +390,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 <div class="screen active" id="homeScreen">
   <div class="topnav">
     <span class="menu-icon">☰</span>
-    <div class="logo">CareCompanion 🧡</div>
+    <div class="logo">CareGaroo🧡</div>
     <div class="avatar-sm">👤</div>
   </div>
   <div style="overflow-y:auto;flex:1;padding-bottom:160px">
@@ -375,7 +492,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
   <nav class="bottom-nav">
     <a class="nav-item active" onclick="switchTab('home',this)"><span class="nicon">🏠</span>Home</a>
     <a class="nav-item" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
-    <a class="nav-book"><span class="nicon">📅</span>Book</a>
+    <a class="nav-book" onclick="openBooking()"><span class="nicon">📅</span>Book</a>
     <a class="nav-item" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
     <a class="nav-item"><span class="nicon">👤</span>Profile</a>
   </nav>
@@ -416,7 +533,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
   <nav class="bottom-nav">
     <a class="nav-item" onclick="switchTab('home',this)"><span class="nicon">🏠</span>Home</a>
     <a class="nav-item active" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
-    <a class="nav-book"><span class="nicon">📅</span>Book</a>
+    <a class="nav-book" onclick="openBooking()"><span class="nicon">📅</span>Book</a>
     <a class="nav-item" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
     <a class="nav-item"><span class="nicon">👤</span>Profile</a>
   </nav>
@@ -576,7 +693,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
   <nav class="bottom-nav">
     <a class="nav-item" onclick="switchTab('home',this)"><span class="nicon">🏠</span>Home</a>
     <a class="nav-item" onclick="switchTab('carers',this)"><span class="nicon">👥</span>Carers</a>
-    <a class="nav-book"><span class="nicon">📅</span>Book</a>
+    <a class="nav-book" onclick="openBooking()"><span class="nicon">📅</span>Book</a>
     <a class="nav-item active" onclick="switchTab('mycare',this)"><span class="nicon">📋</span>My Care</a>
     <a class="nav-item"><span class="nicon">👤</span>Profile</a>
   </nav>
@@ -589,6 +706,226 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
     <div class="profile-header-title" id="profileHeaderName">Carer Profile</div>
   </div>
   <div style="overflow-y:auto;flex:1" id="profileContent"></div>
+</div>
+
+<!-- ══════════════ BOOKING SCREEN ══════════════ -->
+<div class="screen" id="bookingScreen">
+  <div class="topnav">
+    <button class="back-btn" onclick="closeBooking()" style="margin-right:4px">←</button>
+    <div class="logo">Book a Service 📅</div>
+    <div class="avatar-sm">👤</div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-bar" id="progressBar">
+    <div class="prog-step">
+      <div class="prog-dot active" id="pd1">1</div>
+      <div class="prog-label active" id="pl1">Service</div>
+    </div>
+    <div class="prog-line" id="pline1"></div>
+    <div class="prog-step">
+      <div class="prog-dot pending" id="pd2">2</div>
+      <div class="prog-label" id="pl2">Date & Time</div>
+    </div>
+    <div class="prog-line" id="pline2"></div>
+    <div class="prog-step">
+      <div class="prog-dot pending" id="pd3">3</div>
+      <div class="prog-label" id="pl3">Carer</div>
+    </div>
+    <div class="prog-line" id="pline3"></div>
+    <div class="prog-step">
+      <div class="prog-dot pending" id="pd4">4</div>
+      <div class="prog-label" id="pl4">Details</div>
+    </div>
+    <div class="prog-line" id="pline4"></div>
+    <div class="prog-step">
+      <div class="prog-dot pending" id="pd5">5</div>
+      <div class="prog-label" id="pl5">Confirm</div>
+    </div>
+  </div>
+
+  <div style="overflow-y:auto;flex:1;padding-bottom:90px" id="bookScrollArea">
+
+    <!-- STEP 1: Choose Service -->
+    <div class="book-step active" id="bstep1">
+      <div class="book-hero">
+        <h1>What service<br>do you need? 🧡</h1>
+        <p>Select the care service for your loved one</p>
+      </div>
+      <div class="section-label"><span>🏥</span> Choose a Service</div>
+      <div class="svc-pick-grid">
+        <div class="svc-pick-card" onclick="selectService(this,'Hospital Companion','🏥','1300','visit')">
+          <div class="spc-icon">🏥</div>
+          <div class="spc-name">Hospital Companion</div>
+          <div class="spc-price">1,300฿ / visit</div>
+          <div class="spc-check">✓</div>
+        </div>
+        <div class="svc-pick-card" onclick="selectService(this,'Health Check-up','🩺','1500','trip')">
+          <div class="spc-icon">🩺</div>
+          <div class="spc-name">Health Check-up Trip</div>
+          <div class="spc-price">1,500฿ / trip</div>
+          <div class="spc-check">✓</div>
+        </div>
+        <div class="svc-pick-card" onclick="selectService(this,'Senior Outing','🌳','1000','trip')">
+          <div class="spc-icon">🌳</div>
+          <div class="spc-name">Senior Outing</div>
+          <div class="spc-price">1,000฿ / trip</div>
+          <div class="spc-check">✓</div>
+        </div>
+        <div class="svc-pick-card" onclick="selectService(this,'Grocery Assistant','🛒','1000','trip')">
+          <div class="spc-icon">🛒</div>
+          <div class="spc-name">Grocery Assistant</div>
+          <div class="spc-price">1,000฿ / trip</div>
+          <div class="spc-check">✓</div>
+        </div>
+        <div class="svc-pick-card" onclick="selectService(this,'Safety Check','🏠','1000','check')">
+          <div class="spc-icon">🏠</div>
+          <div class="spc-name">Home Safety Check</div>
+          <div class="spc-price">1,000฿ / check</div>
+          <div class="spc-check">✓</div>
+        </div>
+        <div class="svc-pick-card" onclick="selectService(this,'Companionship','💬','600','hour')">
+          <div class="spc-icon">💬</div>
+          <div class="spc-name">Companionship</div>
+          <div class="spc-price">600฿ / hour</div>
+          <div class="spc-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Date & Time -->
+    <div class="book-step" id="bstep2">
+      <div class="book-hero">
+        <h1>When do you<br>need care? 📅</h1>
+        <p>Pick a date and time that works best</p>
+      </div>
+      <div class="section-label"><span>📅</span> Select Date</div>
+      <div class="date-scroll" id="dateScroll"></div>
+      <div class="section-label"><span>🕐</span> Select Time</div>
+      <div class="time-grid">
+        <div class="time-chip" onclick="selectTime(this)">8:00 AM</div>
+        <div class="time-chip" onclick="selectTime(this)">9:00 AM</div>
+        <div class="time-chip unavail">10:00 AM</div>
+        <div class="time-chip" onclick="selectTime(this)">11:00 AM</div>
+        <div class="time-chip unavail">12:00 PM</div>
+        <div class="time-chip" onclick="selectTime(this)">1:00 PM</div>
+        <div class="time-chip" onclick="selectTime(this)">2:00 PM</div>
+        <div class="time-chip" onclick="selectTime(this)">3:00 PM</div>
+        <div class="time-chip unavail">4:00 PM</div>
+        <div class="time-chip" onclick="selectTime(this)">5:00 PM</div>
+        <div class="time-chip" onclick="selectTime(this)">6:00 PM</div>
+        <div class="time-chip" onclick="selectTime(this)">7:00 PM</div>
+      </div>
+      <div class="section-label"><span>⏱️</span> Duration</div>
+      <div class="duration-row">
+        <div class="dur-btn" onclick="selectDuration(this,'2 hrs','2')"><div class="db-label">2 hrs</div><div class="db-sub">Short visit</div></div>
+        <div class="dur-btn" onclick="selectDuration(this,'4 hrs','4')"><div class="db-label">4 hrs</div><div class="db-sub">Half day</div></div>
+        <div class="dur-btn" onclick="selectDuration(this,'Full day','8')"><div class="db-label">Full day</div><div class="db-sub">8 hrs</div></div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Choose Carer -->
+    <div class="book-step" id="bstep3">
+      <div class="book-hero">
+        <h1>Who will care<br>for them? 👥</h1>
+        <p>Choose a trusted carer or let us match</p>
+      </div>
+      <div class="section-label"><span>✨</span> Best Match for You</div>
+      <div id="carerPickList"></div>
+      <div class="any-carer-btn" id="anyCarerBtn" onclick="selectAnyCarer()">
+        <div class="acb-icon">🤝</div>
+        <div>
+          <div class="acb-text" style="font-size:13px;font-weight:700;color:var(--dark)">Best Available Carer</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px">We'll match you with the top-rated available carer</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Details & Notes -->
+    <div class="book-step" id="bstep4">
+      <div class="book-hero">
+        <h1>Any special<br>notes? 📝</h1>
+        <p>Help your carer prepare for the visit</p>
+      </div>
+      <div class="section-label"><span>👴</span> Care Recipient</div>
+      <div class="recipient-row">
+        <div class="recipient-card selected" id="rcMum" onclick="selectRecipient(this)">
+          <div class="rc-icon" style="background:#FFF3DC">👵</div>
+          <div>
+            <div class="rc-name">Khun Mae (Mum)</div>
+            <div class="rc-rel">Age 72 · Diabetes, mild hypertension</div>
+          </div>
+          <div class="rc-radio on" id="rr1">✓</div>
+        </div>
+        <div class="recipient-card" id="rcDad" onclick="selectRecipient(this)">
+          <div class="rc-icon" style="background:#E8F4FD">👴</div>
+          <div>
+            <div class="rc-name">Khun Por (Dad)</div>
+            <div class="rc-rel">Age 75 · Knee surgery recovery</div>
+          </div>
+          <div class="rc-radio" id="rr2">✓</div>
+        </div>
+      </div>
+      <div class="section-label"><span>📍</span> Pickup Address</div>
+      <div class="notes-block">
+        <textarea class="notes-textarea" rows="2" id="pickupAddr" placeholder="e.g. 42/5 Sukhumvit Soi 11, Bangkok 10110">42/5 Sukhumvit Soi 11, Bangkok 10110</textarea>
+      </div>
+      <div class="section-label"><span>📝</span> Special Instructions</div>
+      <div class="notes-block">
+        <textarea class="notes-textarea" rows="3" id="specialNotes" placeholder="E.g. Needs wheelchair at hospital entrance. Allergic to penicillin. Prefers Thai-speaking carer..."></textarea>
+    </div>
+</div>
+
+    <!-- STEP 5: Confirm -->
+    <div class="book-step" id="bstep5">
+      <div class="book-hero">
+        <h1>Review your<br>booking 🧾</h1>
+        <p>Check everything before confirming</p>
+      </div>
+      <div class="confirm-summary">
+        <div class="cs-row"><span class="cs-label">🏥 Service</span><span class="cs-value" id="cs-service">—</span></div>
+        <div class="cs-row"><span class="cs-label">📅 Date</span><span class="cs-value" id="cs-date">—</span></div>
+        <div class="cs-row"><span class="cs-label">🕐 Time</span><span class="cs-value" id="cs-time">—</span></div>
+        <div class="cs-row"><span class="cs-label">⏱ Duration</span><span class="cs-value" id="cs-duration">—</span></div>
+        <div class="cs-row"><span class="cs-label">👤 Carer</span><span class="cs-value" id="cs-carer">—</span></div>
+        <div class="cs-row"><span class="cs-label">👵 Recipient</span><span class="cs-value" id="cs-recipient">—</span></div>
+        <div class="cs-row"><span class="cs-label">📍 Pickup</span><span class="cs-value" id="cs-address" style="max-width:180px;text-align:right">—</span></div>
+      </div>
+      <div class="price-breakdown">
+        <div class="pb-row"><span class="pb-label">Service fee</span><span class="pb-val" id="pb-service">—</span></div>
+        <div class="pb-row"><span class="pb-label">Platform fee</span><span class="pb-val">50฿</span></div>
+        <div class="pb-row total"><span class="pb-label" style="font-weight:700;color:var(--dark)">Total</span><span class="pb-val" id="pb-total" style="color:var(--accent)">—</span></div>
+      </div>
+      <div class="terms-check">
+        <input type="checkbox" id="termsBox" onchange="updateConfirmBtn()">
+        <label for="termsBox">I agree to the <a href="#">Terms of Service</a> and <a href="#">Cancellation Policy</a>. Free cancellation up to 24 hours before the session.</label>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-wrap" id="successWrap">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Booking Confirmed!</div>
+      <div class="success-sub">Your carer will be notified and you'll receive a confirmation shortly. We'll send updates as the session approaches.</div>
+      <div class="success-card">
+        <div class="sc-row"><span class="scl">🏥 Service</span><span class="scv" id="sc-service">—</span></div>
+        <div class="sc-row"><span class="scl">📅 Date & Time</span><span class="scv" id="sc-datetime">—</span></div>
+        <div class="sc-row"><span class="scl">👤 Carer</span><span class="scv" id="sc-carer">—</span></div>
+        <div class="sc-row"><span class="scl">💳 Total Paid</span><span class="scv" id="sc-total" style="color:var(--accent)">—</span></div>
+      </div>
+      <div class="success-btns">
+        <button class="sb-btn sb-secondary" onclick="goHome()">Back to Home</button>
+        <button class="sb-btn sb-primary" onclick="switchTab('mycare',null)">Track Session</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom action bar -->
+  <div class="book-action-bar" id="bookActionBar">
+    <button class="bab-back" id="babBack" onclick="bookPrev()">←</button>
+    <button class="bab-next" id="babNext" onclick="bookNext()">Choose Date & Time →</button>
+  </div>
 </div>
 
 <!-- ══════════════ OVERLAY + SHEET ══════════════ -->
@@ -678,6 +1015,7 @@ function switchTab(tab, el){
   document.getElementById('homeScreen').classList.remove('active');
   document.getElementById('carersScreen').classList.remove('active');
   document.getElementById('mycareScreen').classList.remove('active');
+  document.getElementById('bookingScreen').classList.remove('active');
   if(tab==='home') document.getElementById('homeScreen').classList.add('active');
   else if(tab==='carers'){ document.getElementById('carersScreen').classList.add('active'); renderBrowseCarers(carers); }
   else if(tab==='mycare') document.getElementById('mycareScreen').classList.add('active');
@@ -726,6 +1064,31 @@ function openProfileFromBrowse(id){
   document.getElementById('profileScreen').classList.add('active');
   document.getElementById('profileScreen').dataset.from='carers';
   document.getElementById('profileScreen').scrollTop=0;
+}
+
+function openProfileFromBooking(id){
+  const c=carers.find(x=>x.id===id);
+  document.getElementById('profileHeaderName').textContent=c.name;
+  // Replace the Book button in profile with "Select This Carer" that goes back to booking
+  document.getElementById('profileContent').innerHTML=buildProfileHTML(c);
+  // Override the book button to select + return
+  setTimeout(()=>{
+    const bar = document.querySelector('#profileContent .profile-book-bar');
+    if(bar){
+      bar.innerHTML=`
+        <div><div class="book-price">${c.price} <span>/ session</span></div></div>
+        <button class="book-btn" style="background:var(--accent)" onclick="selectFromProfile(${c.id},'${c.name}')">✓ Select ${c.name.split(' ')[0]}</button>`;
+    }
+  }, 0);
+  document.getElementById('bookingScreen').classList.remove('active');
+  document.getElementById('profileScreen').classList.add('active');
+  document.getElementById('profileScreen').dataset.from='booking';
+  document.getElementById('profileScreen').scrollTop=0;
+}
+
+function selectFromProfile(id, name){
+  selectCarerPick(id, name);
+  closeProfile();
 }
 
 /* ── HOME CHIPS ── */
@@ -812,6 +1175,7 @@ function closeProfile(){
   const from=document.getElementById('profileScreen').dataset.from;
   document.getElementById('profileScreen').classList.remove('active');
   if(from==='carers') document.getElementById('carersScreen').classList.add('active');
+  else if(from==='booking') document.getElementById('bookingScreen').classList.add('active');
   else{ document.getElementById('homeScreen').classList.add('active'); openSheet(currentService.title,currentService.emoji,currentService.price,currentService.desc); }
 }
 
@@ -823,6 +1187,205 @@ document.addEventListener('click',e=>{
     btn.classList.add('selected');
   }
 });
+
+/* ══════════════ BOOKING LOGIC ══════════════ */
+let bookStep = 1;
+let bookData = { service:'', serviceEmoji:'', servicePrice:0, serviceUnit:'', date:'', time:'', durationLabel:'', durationHrs:0, carer:'', recipient:'Khun Mae (Mum)' };
+
+const stepLabels = ['Choose Date & Time →','Choose Your Carer →','Add Details →','Review Booking →','Confirm & Book ✓'];
+
+function openBooking(){
+  bookStep = 1;
+  bookData = { service:'', serviceEmoji:'', servicePrice:0, serviceUnit:'', date:'', time:'', durationLabel:'', durationHrs:0, carer:'', recipient:'Khun Mae (Mum)' };
+  document.querySelectorAll('.svc-pick-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.time-chip:not(.unavail)').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.dur-btn').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('termsBox').checked = false;
+  document.getElementById('successWrap').classList.remove('show');
+  buildDateScroll();
+  buildCarerPicks();
+  renderProgress();
+  showStep(1);
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('bookingScreen').classList.add('active');
+  document.getElementById('bookScrollArea').scrollTop = 0;
+}
+
+function closeBooking(){
+  document.getElementById('bookingScreen').classList.remove('active');
+  document.getElementById('homeScreen').classList.add('active');
+}
+
+function goHome(){
+  closeBooking();
+}
+
+function buildDateScroll(){
+  const wrap = document.getElementById('dateScroll');
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const today = new Date(2026,2,7); // March 7 2026
+  wrap.innerHTML = '';
+  for(let i=0;i<10;i++){
+    const d = new Date(today); d.setDate(today.getDate()+i);
+    const chip = document.createElement('div');
+    chip.className = 'date-chip' + (i===0?' selected':'');
+    chip.innerHTML = `<div class="dc-day">${days[d.getDay()]}</div><div class="dc-num">${d.getDate()}</div><div class="dc-mon">${months[d.getMonth()]}</div>`;
+    const label = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
+    if(i===0) bookData.date = label;
+    chip.onclick = () => { document.querySelectorAll('.date-chip').forEach(c=>c.classList.remove('selected')); chip.classList.add('selected'); bookData.date = label; };
+    wrap.appendChild(chip);
+  }
+}
+
+function buildCarerPicks(){
+  document.getElementById('carerPickList').innerHTML = carers.map(c=>`
+    <div class="carer-pick-card" id="cpc_${c.id}">
+      <div class="cpc-top" onclick="selectCarerPick(${c.id},'${c.name}')">
+        <div class="cpc-avatar"><img src="${c.photo}" onerror="this.parentElement.innerHTML='${c.avatar}'"></div>
+        <div class="cpc-meta">
+          <div class="cpc-name">${c.name}</div>
+          <div class="cpc-role">${c.expRole}</div>
+          <div class="cpc-rating"><span class="cpc-stars">★★★★★</span><span class="cpc-num">${c.rating} (${c.reviews})</span></div>
+        </div>
+        <div class="cpc-radio" id="cpr_${c.id}">✓</div>
+      </div>
+      <div class="cpc-tags">${c.tags.map(t=>`<span class="cpc-tag">${t}</span>`).join('')}</div>
+      <div class="cpc-bio">${c.bio.substring(0,90)}...</div>
+      <div class="cpc-actions">
+        <button class="cpc-btn-outline" onclick="openProfileFromBooking(${c.id})">👤 View Profile</button>
+        <button class="cpc-btn-fill ${bookData.carer===c.name?'selected':''}" id="cpbtn_${c.id}" onclick="selectCarerPick(${c.id},'${c.name}')">Select Carer</button>
+      </div>
+    </div>`).join('');
+}
+
+function selectService(el, name, emoji, price, unit){
+  document.querySelectorAll('.svc-pick-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  bookData.service = name; bookData.serviceEmoji = emoji;
+  bookData.servicePrice = parseInt(price); bookData.serviceUnit = unit;
+  document.getElementById('babNext').disabled = false;
+}
+
+function selectTime(el){
+  document.querySelectorAll('.time-chip').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  bookData.time = el.textContent;
+}
+
+function selectDuration(el, label, hrs){
+  document.querySelectorAll('.dur-btn').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  bookData.durationLabel = label; bookData.durationHrs = parseInt(hrs);
+}
+
+function selectCarerPick(id, name){
+  document.querySelectorAll('.carer-pick-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('[id^="cpr_"]').forEach(r=>r.classList.remove('on'));
+  document.querySelectorAll('[id^="cpbtn_"]').forEach(b=>{b.textContent='Select Carer';b.classList.remove('selected')});
+  document.getElementById('anyCarerBtn').classList.remove('selected');
+  document.getElementById('cpc_'+id).classList.add('selected');
+  document.getElementById('cpr_'+id).classList.add('on');
+  const btn = document.getElementById('cpbtn_'+id);
+  if(btn){ btn.textContent='✓ Selected'; btn.classList.add('selected'); }
+  bookData.carer = name;
+}
+
+function selectAnyCarer(){
+  document.querySelectorAll('.carer-pick-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('[id^="cpr_"]').forEach(r=>r.classList.remove('on'));
+  document.getElementById('anyCarerBtn').classList.add('selected');
+  bookData.carer = 'Best Available';
+}
+
+function selectRecipient(el){
+  document.querySelectorAll('.recipient-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.rc-radio').forEach(r=>r.classList.remove('on'));
+  el.classList.add('selected');
+  el.querySelector('.rc-radio').classList.add('on');
+  bookData.recipient = el.querySelector('.rc-name').textContent;
+}
+
+function updateConfirmBtn(){
+  document.getElementById('babNext').disabled = !document.getElementById('termsBox').checked;
+}
+
+function renderProgress(){
+  for(let i=1;i<=5;i++){
+    const dot = document.getElementById('pd'+i);
+    const lbl = document.getElementById('pl'+i);
+    dot.classList.remove('done','active','pending');
+    lbl.classList.remove('done','active');
+    if(i < bookStep){ dot.classList.add('done'); dot.textContent='✓'; lbl.classList.add('done'); }
+    else if(i === bookStep){ dot.classList.add('active'); dot.textContent=i; lbl.classList.add('active'); }
+    else{ dot.classList.add('pending'); dot.textContent=i; }
+    if(i < 5){
+      const line = document.getElementById('pline'+i);
+      line.classList.toggle('done', i < bookStep);
+    }
+  }
+  const btn = document.getElementById('babNext');
+  const back = document.getElementById('babBack');
+  back.style.visibility = bookStep > 1 ? 'visible' : 'hidden';
+  if(bookStep < 5){ btn.textContent = stepLabels[bookStep-1]; btn.disabled = false; }
+  else { btn.textContent = 'Confirm & Book ✓'; btn.disabled = !document.getElementById('termsBox').checked; }
+}
+
+function showStep(n){
+  document.querySelectorAll('.book-step').forEach(s=>s.classList.remove('active'));
+  const el = document.getElementById('bstep'+n);
+  if(el) el.classList.add('active');
+  document.getElementById('bookScrollArea').scrollTop = 0;
+}
+
+function bookNext(){
+  if(bookStep === 1 && !bookData.service){ alert('Please select a service first.'); return; }
+  if(bookStep === 2){
+    if(!bookData.time){ alert('Please select a time.'); return; }
+    if(!bookData.durationLabel){ alert('Please select a duration.'); return; }
+  }
+  if(bookStep === 3 && !bookData.carer){ alert('Please select a carer or choose Best Available.'); return; }
+  if(bookStep === 5){ confirmBooking(); return; }
+  bookStep++;
+  if(bookStep === 5) fillConfirmStep();
+  renderProgress();
+  showStep(bookStep);
+}
+
+function bookPrev(){
+  if(bookStep <= 1) return;
+  bookStep--;
+  renderProgress();
+  showStep(bookStep);
+}
+
+function fillConfirmStep(){
+  const hrs = bookData.durationHrs || 1;
+  const total = bookData.servicePrice * hrs + 50;
+  document.getElementById('cs-service').textContent = bookData.serviceEmoji + ' ' + bookData.service;
+  document.getElementById('cs-date').textContent = bookData.date;
+  document.getElementById('cs-time').textContent = bookData.time;
+  document.getElementById('cs-duration').textContent = bookData.durationLabel;
+  document.getElementById('cs-carer').textContent = bookData.carer;
+  document.getElementById('cs-recipient').textContent = bookData.recipient;
+  document.getElementById('cs-address').textContent = document.getElementById('pickupAddr').value || '—';
+  document.getElementById('pb-service').textContent = bookData.servicePrice.toLocaleString() + '฿ × ' + hrs + 'hr';
+  document.getElementById('pb-total').textContent = total.toLocaleString() + '฿';
+}
+
+function confirmBooking(){
+  const hrs = bookData.durationHrs || 1;
+  const total = bookData.servicePrice * hrs + 50;
+  document.getElementById('sc-service').textContent = bookData.serviceEmoji + ' ' + bookData.service;
+  document.getElementById('sc-datetime').textContent = bookData.date + ' · ' + bookData.time;
+  document.getElementById('sc-carer').textContent = bookData.carer;
+  document.getElementById('sc-total').textContent = total.toLocaleString() + '฿';
+  document.querySelectorAll('.book-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('successWrap').classList.add('show');
+  document.getElementById('bookActionBar').style.display = 'none';
+  document.getElementById('progressBar').style.display = 'none';
+  document.getElementById('bookScrollArea').scrollTop = 0;
+}
 </script>
 </body>
 </html>
