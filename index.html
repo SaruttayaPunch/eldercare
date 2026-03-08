@@ -509,7 +509,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);max
 <div class="screen active" id="homeScreen">
   <div class="topnav">
     <span class="menu-icon">☰</span>
-    <div class="logo">CareGaroo 🧡</div>
+    <div class="logo">CareCompanion 🧡</div>
     <div class="avatar-sm">👤</div>
   </div>
   <div style="overflow-y:auto;flex:1;padding-bottom:160px">
@@ -1288,18 +1288,18 @@ let carerFilter = 'all';
 const carerCategories = {1:['medical','social'],2:['outing','social'],3:['home','social']};
 
 /* ── TAB SWITCHING ── */
+function scrollScreenToTop(id){ const el=document.getElementById(id); if(el){ el.scrollTop=0; window.scrollTo(0,0); } }
+
 function switchTab(tab, el){
   document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
   if(el) el.classList.add('active');
-  document.getElementById('homeScreen').classList.remove('active');
-  document.getElementById('carersScreen').classList.remove('active');
-  document.getElementById('mycareScreen').classList.remove('active');
-  document.getElementById('bookingScreen').classList.remove('active');
-  document.getElementById('userProfileScreen').classList.remove('active');
-  if(tab==='home') document.getElementById('homeScreen').classList.add('active');
-  else if(tab==='carers'){ document.getElementById('carersScreen').classList.add('active'); renderBrowseCarers(carers); }
-  else if(tab==='mycare') document.getElementById('mycareScreen').classList.add('active');
-  else if(tab==='profile'){ document.getElementById('userProfileScreen').classList.add('active'); renderCarePoints(); renderHistory('all'); }
+  ['homeScreen','carersScreen','mycareScreen','bookingScreen','userProfileScreen'].forEach(id=>{
+    document.getElementById(id).classList.remove('active');
+  });
+  if(tab==='home'){ document.getElementById('homeScreen').classList.add('active'); scrollScreenToTop('homeScreen'); }
+  else if(tab==='carers'){ document.getElementById('carersScreen').classList.add('active'); renderBrowseCarers(carers); scrollScreenToTop('carersScreen'); }
+  else if(tab==='mycare'){ document.getElementById('mycareScreen').classList.add('active'); scrollScreenToTop('mycareScreen'); }
+  else if(tab==='profile'){ document.getElementById('userProfileScreen').classList.add('active'); renderCarePoints(); renderHistory('all'); scrollScreenToTop('userProfileScreen'); }
 }
 
 /* ── BROWSE CARERS ── */
@@ -1320,7 +1320,7 @@ function renderBrowseCarers(list){
       <div class="browse-skills">${c.tags.map(t=>`<span class="browse-skill">${t}</span>`).join('')}</div>
       <div class="browse-actions">
         <button class="btn-outline" onclick="openProfileFromBrowse(${c.id})">View Profile</button>
-        <button class="btn-fill">Book Now</button>
+        <button class="btn-fill" onclick="bookWithCarer(${c.id})">Book Now</button>
       </div>
     </div>`).join('');
 }
@@ -1344,7 +1344,7 @@ function openProfileFromBrowse(id){
   document.getElementById('carersScreen').classList.remove('active');
   document.getElementById('profileScreen').classList.add('active');
   document.getElementById('profileScreen').dataset.from='carers';
-  document.getElementById('profileScreen').scrollTop=0;
+  scrollScreenToTop('profileScreen');
 }
 
 function openProfileFromBooking(id){
@@ -1364,7 +1364,64 @@ function openProfileFromBooking(id){
   document.getElementById('bookingScreen').classList.remove('active');
   document.getElementById('profileScreen').classList.add('active');
   document.getElementById('profileScreen').dataset.from='booking';
-  document.getElementById('profileScreen').scrollTop=0;
+  scrollScreenToTop('profileScreen');
+}
+
+function bookWithCarer(id){
+  const c = carers.find(x => x.id === id);
+
+  // Map service names to booking data format
+  const serviceMap = {
+    'Hospital Companion':  {name:'Hospital Companion',  emoji:'🏥', price:1300, unit:'visit'},
+    'Health Check-up Trip':{name:'Health Check-up Trip',emoji:'🩺', price:1500, unit:'trip'},
+    'Senior Outing':       {name:'Senior Outing',       emoji:'🌳', price:1000, unit:'trip'},
+    'Grocery Assistant':   {name:'Grocery Assistant',   emoji:'🛒', price:1000, unit:'trip'},
+    'Safety Check':        {name:'Safety Check',        emoji:'🏠', price:1000, unit:'check'},
+    'Companionship':       {name:'Companionship',       emoji:'💬', price:600,  unit:'hour'},
+  };
+
+  // Close sheet if open
+  closeSheet();
+
+  // Reset booking state
+  openBooking();
+
+  // If a service was active in the sheet, pre-fill it
+  const svc = serviceMap[currentService.title];
+  if(svc){
+    bookData.service      = svc.name;
+    bookData.serviceEmoji = svc.emoji;
+    bookData.servicePrice = svc.price;
+    bookData.serviceUnit  = svc.unit;
+    // Visually tick the matching service card
+    document.querySelectorAll('.svc-pick-card').forEach(card => {
+      if(card.querySelector('.spc-name').textContent.trim() === svc.name){
+        card.classList.add('selected');
+      }
+    });
+  }
+
+  // Pre-select the carer
+  bookData._preselectedCarer = id;
+
+  // Decide which step to land on
+  // If service already known → skip to step 2 (Date & Time)
+  // Carer will auto-select when step 3 renders via buildCarerPicks
+  if(svc){
+    bookStep = 2;
+    buildDateScroll();
+    buildCarerPicks(); // so preselect runs for step 3 later
+    renderProgress();
+    showStep(2);
+  }
+  // else stay on step 1 so user picks service first
+}
+
+function bookFromProfile(id){
+  // No service context — start at step 1, carer will be pre-selected on step 3
+  currentService = {}; // clear so bookWithCarer stays on step 1
+  closeProfile();
+  bookWithCarer(id);
 }
 
 function selectFromProfile(id, name){
@@ -1417,7 +1474,7 @@ function carerCard(c){
     <div class="skill-tags">${c.tags.map(t=>`<span class="skill-tag">${t}</span>`).join('')}</div>
     <div class="carer-actions">
       <button class="btn-outline" onclick="openProfile(${c.id})">View Profile</button>
-      <button class="btn-fill">Book Now</button>
+      <button class="btn-fill" onclick="bookWithCarer(${c.id})">Book Now</button>
     </div>
   </div>`;
 }
@@ -1438,7 +1495,7 @@ function buildProfileHTML(c){
     <div class="profile-section"><div class="p-sec-title" data-icon="⭐" style="--icon-bg:#FFF3DC;--icon-shadow:rgba(245,166,35,.2)">Best At</div><div class="p-tags">${c.bestAt.map((t,i)=>`<span class="p-tag${i<2?' highlight':''}">${t}</span>`).join('')}</div></div>
     <div class="profile-section"><div class="p-sec-title" data-icon="💼" style="--icon-bg:#E8F4FD;--icon-shadow:rgba(76,130,245,.2)">Experience</div><div class="exp-card"><div class="exp-icon">🏥</div><div><div class="exp-title">${c.expRole}</div><div class="exp-sub">${c.experience}</div></div></div></div>
     <div class="profile-section"><div class="p-sec-title" data-icon="💬" style="--icon-bg:#E8F7F0;--icon-shadow:rgba(76,175,130,.2)">Recent Reviews</div>${c.reviewsList.map(r=>`<div class="review-card"><div class="review-top"><span class="reviewer-name">${r.name}</span><span class="review-date">${r.date}</span></div><div class="review-stars">${r.stars}</div><div class="review-text">${r.text}</div></div>`).join('')}</div>
-    <div class="profile-book-bar"><div><div class="book-price">${c.price} <span>/ session</span></div></div><button class="book-btn">Book ${c.name.split(' ')[0]}</button></div>`;
+    <div class="profile-book-bar"><div><div class="book-price">${c.price} <span>/ session</span></div></div><button class="book-btn" onclick="bookFromProfile(${c.id})">Book ${c.name.split(' ')[0]}</button></div>`;
 }
 
 function openProfile(id){
@@ -1455,9 +1512,9 @@ function openProfile(id){
 function closeProfile(){
   const from=document.getElementById('profileScreen').dataset.from;
   document.getElementById('profileScreen').classList.remove('active');
-  if(from==='carers') document.getElementById('carersScreen').classList.add('active');
-  else if(from==='booking') document.getElementById('bookingScreen').classList.add('active');
-  else{ document.getElementById('homeScreen').classList.add('active'); openSheet(currentService.title,currentService.emoji,currentService.price,currentService.desc); }
+  if(from==='carers'){ document.getElementById('carersScreen').classList.add('active'); scrollScreenToTop('carersScreen'); }
+  else if(from==='booking'){ document.getElementById('bookingScreen').classList.add('active'); document.getElementById('bookScrollArea').scrollTop=0; }
+  else{ document.getElementById('homeScreen').classList.add('active'); scrollScreenToTop('homeScreen'); openSheet(currentService.title,currentService.emoji,currentService.price,currentService.desc); }
 }
 
 /* ── HISTORY DATA & LOGIC ── */
@@ -1632,6 +1689,7 @@ function openBooking(){
 function closeBooking(){
   document.getElementById('bookingScreen').classList.remove('active');
   document.getElementById('homeScreen').classList.add('active');
+  scrollScreenToTop('homeScreen');
 }
 
 function goHome(){
@@ -1675,6 +1733,12 @@ function buildCarerPicks(){
         <button class="cpc-btn-fill ${bookData.carer===c.name?'selected':''}" id="cpbtn_${c.id}" onclick="selectCarerPick(${c.id},'${c.name}')">Select Carer</button>
       </div>
     </div>`).join('');
+  // Auto-select if coming from bookWithCarer
+  if(bookData._preselectedCarer){
+    const pc = carers.find(x => x.id === bookData._preselectedCarer);
+    if(pc){ selectCarerPick(pc.id, pc.name); }
+    bookData._preselectedCarer = null;
+  }
 }
 
 function selectService(el, name, emoji, price, unit){
